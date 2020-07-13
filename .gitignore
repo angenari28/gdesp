@@ -48,3 +48,6 @@ Thumbs.db
 
 # dependencies
 /node_modules
+
+#database
+.sqlite
