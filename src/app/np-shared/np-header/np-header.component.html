@@ -1,0 +1,25 @@
+<div class="header">
+  <div class="header__logo ripple">
+    <h2 style="color: #fff;">Gdesp</h2>
+  </div>
+  <div class="header__menu-button">
+    <ng-content select="[menu-button]"></ng-content>
+  </div>
+  <div class="header__dots">
+    <div class="header__dots__icon ripple"  (click)="hidden=false"></div>
+  </div>
+  <div class="header__tools" [class.header__tools--hidden]="hidden">
+    <div class="header__arrow-container">
+      <div class="header__arrow ripple" (click)="hidden=true">
+        <div class="header__arrow__icon">
+          <div class="hamburger hamburger--arrowturn is-active">
+            <div class="hamburger-box">
+              <div class="hamburger-inner"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ng-content select="[tools]"></ng-content>
+  </div>
+</div>

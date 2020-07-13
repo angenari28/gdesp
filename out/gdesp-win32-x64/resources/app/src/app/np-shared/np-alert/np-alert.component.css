@@ -1,0 +1,91 @@
+
+.error {
+  background-color: #f8d7da;
+  display: flex;
+  flex-flow: row nowrap;
+  color: #721c24;
+  border: solid 1px #721c24;
+  border-radius: 4px;
+  padding: 5px 5px;
+  overflow: hidden;
+  position: relative;
+  top: 10px;
+  margin: 0 10px 20px 10px;
+  z-index: 1;
+}
+
+  .error.error-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: solid 1px #721c24;
+  }
+
+  .error.error-warning {
+    background-color: #e0e2b7;
+    color: #aa6e00;
+    border: solid 1px #aa6e00;
+  }
+
+  .error.error-success {
+    background-color: #c2e2b7;
+    color: #165a00;
+    border: solid 1px #165a00;
+  }
+
+  .error.error-info {
+    background-color: #c2e2b7;
+    color: #005964;
+    border: solid 1px #b8e8ee;
+  }
+
+  .error > div {
+    flex: 1;
+    padding: 10px 20px;
+  }
+
+button.close {
+  background: no-repeat;
+  border: none;
+  font-weight: bold;
+  font-size: 18px;
+  align-self: flex-start;
+  color: #721c24;
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 3px 6px 0px 6px;
+}
+
+.error.error-danger button.close {
+  background-color: #721c24;
+  color: #f8d7da;
+}
+
+.error.error-warning button.close {
+  background-color: #aa6e00;
+  color: #e0e2b7;
+}
+
+.error.error-success button.close {
+  background-color: #165a00;
+  color: #c2e2b7;
+}
+
+.error.error-info button.close {
+  background-color: #005964;
+  color: #c2e2b7;
+}
+
+.error-title {
+  display: block;
+  padding-right: 20px;
+}
+
+.error span.error-message {
+  white-space: pre-wrap;
+  margin: 0;
+}
+
+.error .error-container{
+  display: flex;
+  flex-flow: row nowrap;
+}

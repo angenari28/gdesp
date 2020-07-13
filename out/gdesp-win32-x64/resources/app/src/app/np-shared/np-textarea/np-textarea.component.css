@@ -1,0 +1,30 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+  :host label {
+    font-size: 14px;
+    color: #333333;
+    padding-bottom: 5px;
+    display: block;
+  }
+
+  :host textarea {
+    padding: 6px 12px;
+    font-size: 13px;
+    line-height: 1.42857143;
+    color: #555555;
+    background-color: #fff;
+    background-image: none;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    resize: none;
+}
+
+:host textarea.form-control {
+  height: auto;
+}

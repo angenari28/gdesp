@@ -1,0 +1,15 @@
+:host .footer {
+  background-color: #3e5871;
+  padding: 5px 20px;
+  color: #ffffff;
+  text-align: end;
+  font-size: 14px;
+  position: relative;
+  z-index: 2;
+}
+
+@media only screen and (max-width: 600px) {
+  :host .footer {
+    display: none;
+  }
+}

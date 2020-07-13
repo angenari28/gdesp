@@ -1,0 +1,33 @@
+:host {
+  padding: 10px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-end;
+  justify-content: flex-end;
+  border-top: 1px solid #C2C2C2;
+}
+
+  :host /deep/ > * {
+    margin: 0 8px;
+  }
+
+    :host /deep/ > *:first-child {
+      margin: 0 8px 0 0;
+    }
+
+    :host /deep/ > *:last-child {
+      margin: 0 0 0 8px;
+    }
+
+@media only screen and (max-width: 600px) {
+  :host {
+    flex-flow: column nowrap;
+    align-items: stretch;
+  }
+
+    :host /deep/ > *,
+    :host /deep/ > *:first-child,
+    :host /deep/ > *:last-child {
+      margin: 7px 0;
+    }
+}

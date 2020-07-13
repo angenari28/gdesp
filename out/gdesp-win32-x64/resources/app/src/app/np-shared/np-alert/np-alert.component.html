@@ -1,0 +1,16 @@
+<div>
+  <div *ngFor="let s of summary">
+    <div class="error error-{{s.severidade}}">
+      <div class="error-container">
+        <strong class="error-title">
+          <i class="{{s.icone}}"> </i>
+          <span> {{s.titulo}}: </span>
+        </strong>
+        <ng-container *ngFor="let m of s.mensagem;let i=index">
+          <span class="error-message" *ngIf="i==0">{{m}}</span>
+        </ng-container>
+      </div>
+      <button *ngIf="closeWindow"  type="button" class="close" (click)="remove(s.severidade)"> <span class="fa fa-times"></span></button>
+    </div>
+  </div>
+</div>

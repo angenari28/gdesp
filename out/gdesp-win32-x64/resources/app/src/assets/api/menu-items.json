@@ -1,0 +1,23 @@
+{
+  "items": [
+    {
+      "Nome": "HOME",
+      "Icone": "fa fa-chart-bar",
+      "Url": "/dashboard"
+    },
+    {
+      "Nome": "DESPESAS",
+      "Icone": "fa fa-money-bill",
+      "SubItens": [
+        {
+          "Nome": "CATEGORIA",
+          "Url": "/categoria"
+        },
+        {
+          "Nome": ">  despesas",
+          "Url": "/despesas"
+        }
+      ]
+    }
+  ]
+}

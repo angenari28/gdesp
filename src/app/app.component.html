@@ -1,0 +1,17 @@
+<np-frame [nav-expanded]="navExpanded" *ngIf="init">
+  <np-content content>
+    <div style="text-align:center"><p style="flex:1">Aguarde...</p></div>
+  </np-content>
+</np-frame>
+<np-frame [nav-expanded]="navExpanded">
+  <np-header header [logo-click-callback]="logoClick" logo-url="./assets/images/logo_LosPortales-novo.png">
+    <np-nav-button menu-button [callback]="menuClick"></np-nav-button>
+    <gd-profile tools ></gd-profile>
+  </np-header>
+  <np-nav nav></np-nav>
+  <np-content content>
+    <router-outlet #outlet="outlet"></router-outlet>
+  </np-content>
+  <np-footer footer></np-footer>
+</np-frame>
+

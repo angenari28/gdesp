@@ -1,0 +1,40 @@
+:host .content {
+  display: flex;
+  position: relative;
+  display: flex;
+  width: 100%;
+}
+
+  :host .content /deep/ > *:not(router-outlet) {
+    flex: 1;
+    display: flex;
+  }
+
+  :host .content /deep/ .section {
+    flex: 1;
+    display: flex;
+    flex-flow: column nowrap;
+    position: absolute;
+    width: 100%;
+  }
+
+    :host .content /deep/ .section h1 {
+      padding: 0;
+      margin-top: 18px;
+      margin-bottom: 9px;
+      font-family: "Open Sans";
+      font-weight: 500;
+      line-height: 1.1;
+      font-size: 25px;
+      padding: 0 15px;
+    }
+
+@media only screen and (max-width: 600px) {
+  :host .content {
+
+  }
+
+    :host .content /deep/ .section h1 {
+      padding: 0 10px;
+    }
+}

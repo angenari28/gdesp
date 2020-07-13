@@ -1,0 +1,8 @@
+<div class="profile ripple" (click)="exit()">
+  <div class="fas fa-power-off color-red" >
+  </div>
+  <div class="profile__mobile">Perfil</div>
+</div>
+<div class="profile__menu"  [class.profile__menu--active]="menuActive">
+  <div class="profile__menu--item" (click)="exit()">{{'SAIR' | npi18n:'base'}}</div>
+</div>

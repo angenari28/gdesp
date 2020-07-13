@@ -1,0 +1,40 @@
+<div class="form-group">
+  <label class="control-label">{{label}}</label>
+  <div class="datepicker">
+    <input type="text" formControlName="{{controlname}}" />
+    <div *ngIf="!disabled" class="calendar" [class.active]="showCalendar" (click)="toogleCalendar()">
+      <i class="far fa-calendar-alt"></i>
+    </div>
+  </div>
+</div>
+  <div class="popover__container">
+    <div *ngIf="showCalendar" class="popover">
+      <div class="popover__header">
+        <div class="previous" (click)="previousMonth()"><i class="fas fa-angle-double-left"></i></div>
+        <div class="month">{{months[selectedMonth-1]}} de {{selectedYear}}</div>
+        <div class="next" (click)="nextMonth()"><i class="fas fa-angle-double-right"></i></div>
+      </div>
+      <div class="popover__body">
+        <table>
+          <thead>
+            <tr>
+              <th>D</th>
+              <th>S</th>
+              <th>T</th>
+              <th>Q</th>
+              <th>Q</th>
+              <th>S</th>
+              <th>S</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let w of weeks">
+              <td *ngFor="let d of [0, 1, 2, 3, 4, 5, 6]" [class.empty]="!w.days[d]" [class.active]="selectedDay == w.days[d] && currentDate.month == selectedMonth && currentDate.year == selectedYear">
+                <span *ngIf="w.days[d]" class="ui-state-default" (click)="selectDate(w.days[d])">{{w.days[d]}}</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

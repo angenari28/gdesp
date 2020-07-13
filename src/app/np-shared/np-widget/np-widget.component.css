@@ -1,0 +1,96 @@
+:host {
+  background-color: #ffffff;
+  box-shadow: 5px 5px 15px -6px #696e71;
+  border-radius: 6px;
+  display: block;
+}
+
+  :host, :host > div {
+    height: 100%;
+    position: relative;
+    border-top: 2px solid #1abc9c;
+  }
+
+    :host header {
+      padding: 0 10px;
+      border-bottom: 1px solid #C2C2C2;
+    }
+
+      :host header h2 {
+        font-size: 16px;
+        font-weight: 600;
+        color: #515151;
+        line-height: 40px;
+        margin: 0;
+      }
+
+    :host .widget-body {
+      height: 100%;
+    }
+
+    :host .content {
+      position: relative;
+      left: 0;
+      height: 100%;
+      opacity: 1;
+      transition-property: opacity left;
+      transition-duration: 1s;
+    }
+
+    :host .loading .content {
+      opacity: 0;
+      left: 20px;
+      transition-property: opacity left;
+      transition-duration: 0s;
+    }
+
+    :host .loading.no--animate .content {
+      left: 0px;
+    }
+
+    :host .loading .placeholder {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      border-radius: 4px;
+    }
+
+      :host .loading .placeholder div {
+        background-color: #99999955;
+        width: auto;
+        height: calc(100% - 60px);
+        position: relative;
+        margin: 50px 10px 10px 10px;
+        animation: blinking 1s infinite;
+      }
+
+        :host .loading .placeholder div.headerless {
+          height: calc(100% - 20px);
+          margin: 10px;
+        }
+
+        :host .loading .placeholder div span {
+          width: 100px;
+          height: 25px;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          margin: auto;
+          color: #999999;
+        }
+
+@keyframes blinking {
+  0% {
+    background-color: #99999955;
+  }
+
+  50% {
+    background-color: #FFFFFF;
+  }
+
+  100% {
+    background-color: #99999955;
+  }
+}
