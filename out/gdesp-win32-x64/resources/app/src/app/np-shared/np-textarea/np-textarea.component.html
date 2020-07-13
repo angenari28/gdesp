@@ -1,5 +1,0 @@
-<form [formGroup]="form" class="form-group">
-  <label class="control-label">{{label}}</label>
-  <textarea *ngIf="controlName" [attr.rows]="colunas" [attr.maxlength]="maxlength" formControlName="{{controlName}}"></textarea>
-  <textarea class="form-control" *ngIf="!controlName"[attr.rows]="colunas" [attr.maxlength]="maxlength" formControlName="{{controlName}}"></textarea>
-</form>
