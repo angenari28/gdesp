@@ -39,12 +39,12 @@ export class DespesasComponent implements OnInit, AfterViewInit {
   public bsModalRef: BsModalRef;
 
   constructor(private service: DespesasService,
-              public i18n: NpI18nService,
-              public serviceMeses: GdMesesService,
-              public router: Router,
-              private contexto: NpContextService,
-              private event: NpEventService,
-              private modalService: BsModalService) {
+    public i18n: NpI18nService,
+    public serviceMeses: GdMesesService,
+    public router: Router,
+    private contexto: NpContextService,
+    private event: NpEventService,
+    private modalService: BsModalService) {
     this.setValidations();
   }
 
@@ -54,6 +54,11 @@ export class DespesasComponent implements OnInit, AfterViewInit {
     this.model = new DespesasModel();
 
     this.setValidations();
+
+    this.inicializarDados();
+  }
+
+  public inicializarDados() {
 
     this.getCategoria();
 
@@ -72,10 +77,14 @@ export class DespesasComponent implements OnInit, AfterViewInit {
   }
 
   private getCategoria(): void {
+    this.listaCategorias = [];
+
     this.service.getCategoria().subscribe((items) => (this.listaCategorias = items));
   }
 
   private getMeses(): void {
+    this.listaMeses = [];
+
     this.serviceMeses.getMeses().subscribe((meses) => {
       this.listaMeses = meses;
       this.model.mes = +(new Date().getUTCMonth() - 1);
@@ -86,6 +95,7 @@ export class DespesasComponent implements OnInit, AfterViewInit {
 
   private getDespesas(): void {
     this.form.reset();
+    this.retornoModel = [];
 
     let model = [];
 
@@ -99,14 +109,11 @@ export class DespesasComponent implements OnInit, AfterViewInit {
       anos.push(x.ano);
     });
 
-    anos = anos.filter((ano, prox) => {
-      return anos.indexOf(ano) === prox;
-    });
+    anos = this.retirarItensDuplicados(anos);
 
     anos.forEach((ano, indice) => {
       let mesAno = [];
-      let valorMes = 0;
-      let categorias = [];
+
 
       model.forEach(item => {
 
@@ -115,11 +122,12 @@ export class DespesasComponent implements OnInit, AfterViewInit {
         }
       });
 
-      mesAno = mesAno.filter((item, prox) => {
-        return mesAno.indexOf(item) === prox;
-      });
+      mesAno = this.retirarItensDuplicados(mesAno);
 
       mesAno.forEach(mes => {
+        let valorMes = 0;
+        let categorias = [];
+
         model.forEach(data => {
           if (mes === data.mes && ano === data.ano) {
             valorMes += +data.valor;
@@ -127,9 +135,8 @@ export class DespesasComponent implements OnInit, AfterViewInit {
           }
         });
 
-        categorias = categorias.filter((item, prox) => {
-          return categorias.indexOf(item) === prox;
-        });
+        categorias = this.retirarItensDuplicados(categorias);
+
         this.retornoModel.push({ idCategoria: categorias, ano: ano, mes: mes, valor: valorMes });
 
         this.retornoModel.forEach(x => {
@@ -149,6 +156,12 @@ export class DespesasComponent implements OnInit, AfterViewInit {
     });
   }
 
+ retirarItensDuplicados(obj: any): any {
+  return obj.filter((item, prox) => {
+    return obj.indexOf(item) === prox;
+  });
+ }
+
   public addDespesa(): void {
 
     if (this.form.invalid) {
@@ -157,9 +170,10 @@ export class DespesasComponent implements OnInit, AfterViewInit {
 
     let despesa = new DespesaEntity();
     despesa = this.model;
-    this.service.addDespesa(despesa).subscribe((items) => (this.retornoModel = items));
+    this.service.addDespesa(despesa).subscribe();
     this.msgSucesso(this.i18n.getTranslation('SUCESSO_INCLUSAO'));
-    this.getDespesas();
+
+    this.inicializarDados();
   }
 
   ngAfterViewInit() {
@@ -167,9 +181,9 @@ export class DespesasComponent implements OnInit, AfterViewInit {
   }
 
   abrirModal(dados) {
-    const initialState = [{data: dados}];
+    const initialState = [{ data: dados }];
 
-    this.bsModalRef = this.modalService.show(DespesasModalComponent, {initialState});
+    this.bsModalRef = this.modalService.show(DespesasModalComponent, { initialState });
   }
 
   carregarContexto() {
