@@ -1,4 +1,3 @@
-import { DespesasModalComponent } from './despesas-modal/despesas-modal.component';
 import { Router } from '@angular/router';
 import { FormGroup } from '@angular/forms';
 import { Component, OnInit, AfterViewInit } from '@angular/core';
@@ -9,15 +8,14 @@ import { CategoriaEntity } from './../../../database/src/domain/entity/categoria
 import { GdMesesService } from '@gdesp/gd-meses/gd-meses.service';
 import { NpI18nService } from '@gdesp/np-i18n/np-i18n.service';
 import { DespesasService } from './despesas.service';
+import { DespesasModalComponent } from './despesas-modal/despesas-modal.component';
 
 import { DespesasModel } from './despesas.component.model';
 import { GdValidacaoService } from '@gdesp/np-form/gd-validacao/gd-validacao.service';
 import { GdValidacaoEspecificacoes } from '@gdesp/np-form/gd-validacao/gd-validacao.especificacoes';
 import { NpContextService } from '@gdesp/np-context/np-context.service';
 import { NpEventService } from '@gdesp/np-event/np-event.service';
-import { GdMenuContextoInterface } from '@gdesp/gd-menu-contexto/gd-menu-contexto.interface';
-import { deleteDespesa } from '../../../database/src/domain/channel/despesa.channel';
-import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
   templateUrl: './despesas.component.html',

@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { NpAlertComponent } from './np-alert.component';
+import { GdAlertComponent } from './gd-alert.component';
 
 @NgModule({
   declarations: [
-    NpAlertComponent
+    GdAlertComponent
   ],
   imports: [
     CommonModule
   ],
   exports: [
-    NpAlertComponent
+    GdAlertComponent
   ]
 })
-export class NpAlertModule { }
+export class GdAlertModule { }

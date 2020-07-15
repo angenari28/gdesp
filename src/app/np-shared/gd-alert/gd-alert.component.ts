@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { NpAlertModel } from './np-alert.model';
+import { GdAlertModel } from './gd-alert.model';
 import { NpEventService } from '../np-event/np-event.service';
 import { NpContextService } from '../np-context/np-context.service';
 
@@ -16,13 +16,13 @@ export class NpContextoMensagem {
 }
 
 @Component({
-  selector: 'np-alert',
-  templateUrl: './np-alert.component.html',
-  styleUrls: ['./np-alert.component.css']
+  selector: 'gd-alert',
+  templateUrl: './gd-alert.component.html',
+  styleUrls: ['./gd-alert.component.css']
 })
 
-export class NpAlertComponent implements OnInit {
-  summary: NpAlertModel[] = [];
+export class GdAlertComponent implements OnInit {
+  summary: GdAlertModel[] = [];
   KeyContextos = 'LISTA_ULTIMOS_CONTEXTOS_MENSAGEM';
   ultimosContextos: Array<NpContextoMensagem>;
   @Input() contexto: string;
@@ -46,7 +46,7 @@ export class NpAlertComponent implements OnInit {
 
     this.event.on('mensagem-alerta-adicionar', (obj: any) => {
 
-      if ((<NpAlertModel>obj).contexto === this.contexto) {
+      if ((<GdAlertModel>obj).contexto === this.contexto) {
 
         if (obj.severidade === 'danger') {
 
@@ -65,7 +65,7 @@ export class NpAlertComponent implements OnInit {
           obj.mensagem = [obj.mensagem];
         }
 
-        this.summary = [<NpAlertModel>obj];
+        this.summary = [<GdAlertModel>obj];
       }
 
     });
@@ -78,7 +78,7 @@ export class NpAlertComponent implements OnInit {
       this.summary = [];
     });
 
-    this.event.on('mensagem-alerta-geral', (obj: NpAlertModel) => {
+    this.event.on('mensagem-alerta-geral', (obj: GdAlertModel) => {
       this.ultimosContextos = <Array<NpContextoMensagem>>this.contextoService.getContext(this.KeyContextos);
 
       let url = '';

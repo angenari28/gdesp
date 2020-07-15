@@ -10,7 +10,7 @@ import { NpFrameModule } from './np-frame/np-frame.module';
 import { NpWidgetModule } from './np-widget/np-widget.module';
 import { NpWidgetGridModule } from './np-widget-grid/np-widget-grid.module';
 import { NpI18nModule } from './np-i18n/np-i18n.module';
-import { NpAlertModule } from './np-alert/np-alert.module';
+import { GdAlertModule } from './gd-alert/gd-alert.module';
 import { NpFormModule } from './np-form/np-form.module';
 import { NpJsonModule } from './np-json/np-json.module';
 import { NpLoaderModule } from './np-loader/np-loader.module';
@@ -28,7 +28,7 @@ import { GdMenuContextoModule } from '@gdesp/gd-menu-contexto/gd-menu-contexto.m
   NpWidgetGridModule,
   NpWidgetModule,
   NpI18nModule,
-  NpAlertModule,
+  GdAlertModule,
   NpFormModule,
   NpLoaderModule,
   GdMenuContextoModule,
@@ -44,7 +44,7 @@ import { GdMenuContextoModule } from '@gdesp/gd-menu-contexto/gd-menu-contexto.m
     NpWidgetGridModule,
     NpWidgetModule,
     NpI18nModule,
-    NpAlertModule,
+    GdAlertModule,
     NpFormModule,
     NpLoaderModule,
     GdMenuContextoModule,
