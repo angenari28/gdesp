@@ -11,15 +11,15 @@ import { DespesasService } from './despesas.service';
 import { DespesasModalComponent } from './despesas-modal/despesas-modal.component';
 
 import { DespesasModel } from './despesas.component.model';
-import { GdValidacaoService } from '@gdesp/np-form/gd-validacao/gd-validacao.service';
-import { GdValidacaoEspecificacoes } from '@gdesp/np-form/gd-validacao/gd-validacao.especificacoes';
-import { NpContextService } from '@gdesp/np-context/np-context.service';
-import { NpEventService } from '@gdesp/np-event/np-event.service';
+import { GdValidacaoService } from '@gdesp/gd-form/gd-validacao/gd-validacao.service';
+import { GdValidacaoEspecificacoes } from '@gdesp/gd-form/gd-validacao/gd-validacao.especificacoes';
+import { GdContextService } from '@gdesp/gd-context/gd-context.service';
+import { GdEventService } from '@gdesp/gd-event/gd-event.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
   templateUrl: './despesas.component.html',
-  styleUrls: ['./despesas.component.less', '../np-shared/np-form/gd-table/gd-table.component.css']
+  styleUrls: ['./despesas.component.less', '../gd-shared/gd-form/gd-table/gd-table.component.css']
 })
 export class DespesasComponent implements OnInit, AfterViewInit {
 
@@ -36,12 +36,13 @@ export class DespesasComponent implements OnInit, AfterViewInit {
   public modal: DespesasModalComponent;
   public bsModalRef: BsModalRef;
 
-  constructor(private service: DespesasService,
+  constructor(
+    private service: DespesasService,
     public i18n: NpI18nService,
     public serviceMeses: GdMesesService,
     public router: Router,
-    private contexto: NpContextService,
-    private event: NpEventService,
+    private contexto: GdContextService,
+    private event: GdEventService,
     private modalService: BsModalService) {
     this.setValidations();
   }
@@ -154,11 +155,11 @@ export class DespesasComponent implements OnInit, AfterViewInit {
     });
   }
 
- retirarItensDuplicados(obj: any): any {
-  return obj.filter((item, prox) => {
-    return obj.indexOf(item) === prox;
-  });
- }
+  retirarItensDuplicados(obj: any): any {
+    return obj.filter((item, prox) => {
+      return obj.indexOf(item) === prox;
+    });
+  }
 
   public addDespesa(): void {
 

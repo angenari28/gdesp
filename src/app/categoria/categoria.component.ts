@@ -7,9 +7,9 @@ import { CategoriaService } from './categoria.service';
 import { CategoriaEntity } from '../../../database/src/domain/entity/categoria.entity';
 
 @Component({
-  selector: 'np-categoria',
+  selector: 'gd-categoria',
   templateUrl: './categoria.component.html',
-  styleUrls: ['./categoria.component.less', '../np-shared/np-form/gd-table/gd-table.component.css']
+  styleUrls: ['./categoria.component.less', '../gd-shared/gd-form/gd-table/gd-table.component.css']
 })
 export class CategoriaComponent implements OnInit, OnDestroy {
 public model: CategoriaEntity[];

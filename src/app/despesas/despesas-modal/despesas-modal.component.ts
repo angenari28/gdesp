@@ -1,16 +1,18 @@
-import { NpI18nService } from './../../np-shared/np-i18n/np-i18n.service';
-import { NpContextService } from './../../np-shared/np-context/np-context.service';
-import { NpEventService } from './../../np-shared/np-event/np-event.service';
-import { DespesasService } from './../despesas.service';
-import { GdMenuContextoInterface } from './../../np-shared/gd-menu-contexto/gd-menu-contexto.interface';
 import { Component, OnInit } from '@angular/core';
+
+import { NpI18nService } from '@gdesp/np-i18n/np-i18n.service';
+import { GdContextService } from '@gdesp/gd-context/gd-context.service';
+import { GdEventService } from '@gdesp/gd-event/gd-event.service';
+import { GdMenuContextoInterface } from '@gdesp/gd-menu-contexto/gd-menu-contexto.interface';
 import { BsModalRef } from 'ngx-bootstrap/modal';
+
+import { DespesasService } from './../despesas.service';
 
 @Component({
   selector: 'gd-despesas-modal',
   templateUrl: './despesas-modal.component.html',
-  styleUrls: ['./despesas-modal.component.less', '../../np-shared/gd-modal/gd-modal.component.css',
-    '../../np-shared/np-form/gd-table/gd-table.component.css']
+  styleUrls: ['./despesas-modal.component.less', '../../gd-shared/gd-modal/gd-modal.component.css',
+    '../../gd-shared/gd-form/gd-table/gd-table.component.css']
 })
 export class DespesasModalComponent implements OnInit {
   public titulo: any;
@@ -28,8 +30,8 @@ export class DespesasModalComponent implements OnInit {
   constructor(
     public bsmodalRef: BsModalRef,
     public service: DespesasService,
-    private event: NpEventService,
-    private contexto: NpContextService,
+    private event: GdEventService,
+    private contexto: GdContextService,
     private i18n: NpI18nService) { }
 
   ngOnInit(): void {

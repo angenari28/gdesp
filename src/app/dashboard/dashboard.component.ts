@@ -6,9 +6,9 @@ import { ChartType, ChartDataSets } from 'chart.js';
 
 import { DespesasService } from './../despesas/despesas.service';
 import { CategoriaEntity } from './../../../database/src/domain/entity/categoria.entity';
-import { NpEventService } from './../np-shared/np-event/np-event.service';
-import { NpContextService } from './../np-shared/np-context/np-context.service';
-import { NpI18nService } from './../np-shared/np-i18n/np-i18n.service';
+import { GdEventService } from '../gd-shared/gd-event/gd-event.service';
+import { GdContextService } from '../gd-shared/gd-context/gd-context.service';
+import { NpI18nService } from './../gd-shared/np-i18n/np-i18n.service';
 import { GdMesesService } from '@gdesp/gd-meses/gd-meses.service';
 
 @Component({
@@ -25,10 +25,11 @@ export class DashboardComponent implements OnInit {
   public anoSelecionado: any;
   public eventSubject: Subject<void> = new Subject<void>();
 
-  constructor(private serviceDespesas: DespesasService,
-              public serviceMeses: GdMesesService,
-              private contexto: NpContextService,
-              private event: NpEventService) { }
+  constructor(
+    private serviceDespesas: DespesasService,
+    public serviceMeses: GdMesesService,
+    private contexto: GdContextService,
+    private event: GdEventService) { }
 
   public chartLabels: Label[] = [];
   public chartType: ChartType = 'bar';

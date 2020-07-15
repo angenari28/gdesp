@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { GdMenuContextoModule } from '@gdesp/gd-menu-contexto/gd-menu-contexto.module';
-import { NpFormModule } from '@gdesp/np-form/np-form.module';
+import { GdFormModule } from '@gdesp/gd-form/gd-form.module';
 import { NpI18nModule } from '@gdesp/np-i18n/np-i18n.module';
 import { GdAlertModule } from '@gdesp/gd-alert/gd-alert.module';
 import { NpWidgetModule } from '@gdesp/np-widget/np-widget.module';
@@ -23,7 +23,7 @@ import { ElectronService } from 'ngx-electron';
     NpWidgetModule,
     GdAlertModule,
     NpI18nModule,
-    NpFormModule,
+    GdFormModule,
     GdMenuContextoModule,
     CategoriaRoutingModule
   ],

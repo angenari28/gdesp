@@ -3,14 +3,14 @@
   <np-widget-grid columns="6">
     <np-widget title="{{ anosDespesas.length > 0 ? 'Valor despesas mensais' : ''}}" colspan="4" rowspan="{{anosDespesas.length > 0 ? 2 : 1}}">
       <np-alert *ngIf="anosDespesas.length <= 0" contexto="mensagem-dashboard" [closeWindow]="false"></np-alert>
-      <np-row>
-        <np-column size="1">
+      <gd-row>
+        <gd-column size="1">
           <div *ngFor="let ano of anosDespesas">
-            <np-button title="{{ano}}" type="button" color="outline-primary"
-              (click)="filtrarPorAno($event.target.value)" [align]="'right'"></np-button>
+            <gd-button title="{{ano}}" type="button" color="outline-primary"
+              (click)="filtrarPorAno($event.target.value)" [align]="'right'"></gd-button>
           </div>
-        </np-column>
-      </np-row>
+        </gd-column>
+      </gd-row>
       <div *ngIf="chartReady" style="display: block" class="chart-wrapper">
         <canvas baseChart [datasets]="chartData" [labels]="chartLabels" [options]="chartOptions"
           [chartType]="chartType">

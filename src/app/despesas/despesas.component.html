@@ -3,8 +3,8 @@
   <np-widget-grid>
     <np-widget title="{{ 'TITULO_DESPESAS_ADICIONAR' | npi18n }}">
       <gd-alert contexto="mensagem-despesas"></gd-alert>
-      <np-row>
-        <np-column size='8'>
+      <gd-row>
+        <gd-column size='8'>
           <div class="report-adjust">
             <div style="overflow-x: auto; overflow-y: hidden">
             </div>
@@ -13,41 +13,41 @@
                 <div class="table-responsive">
                   <div class="dt-toolbar no-padding">
                     <form [formGroup]="form">
-                      <np-row>
+                      <gd-row>
                         <div *ngIf="this.listaAnos.length > 0">
-                          <np-column size="1">
-                            <np-select [items]="this.listaAnos" [(selected)]="model.ano"
+                          <gd-column size="1">
+                            <gd-select [items]="this.listaAnos" [(selected)]="model.ano"
                               label="{{'DESPESAS_ANO' | npi18n}}" placeholder="Selecionar o ano" bindValue="id"
                               bindLabel="ano">
-                            </np-select>
-                          </np-column>
+                            </gd-select>
+                          </gd-column>
                         </div>
                         <div *ngIf="this.listaMeses.length > 0">
-                          <np-column size="1">
-                            <np-select [items]="this.listaMeses" [(selected)]="model.mes"
+                          <gd-column size="1">
+                            <gd-select [items]="this.listaMeses" [(selected)]="model.mes"
                               label="{{'DESPESAS_MES' | npi18n}}" placeholder="Selecionar o mes" bindValue="id"
                               bindLabel="nome">
-                            </np-select>
-                          </np-column>
+                            </gd-select>
+                          </gd-column>
                         </div>
-                        <np-column size="1">
-                          <np-select [items]="this.listaCategorias" [(selected)]="model.idCategoria"
+                        <gd-column size="1">
+                          <gd-select [items]="this.listaCategorias" [(selected)]="model.idCategoria"
                             label="{{'DESPESAS_CATEGORIAS' | npi18n}}" placeholder="Selecionar a categoria"
                             bindValue="id" bindLabel="name">
-                          </np-select>
-                        </np-column>
-                        <np-column size="1">
-                          <np-input label="{{'DESPESAS_VALOR' | npi18n}}" placeholder="" [form]='form'
+                          </gd-select>
+                        </gd-column>
+                        <gd-column size="1">
+                          <gd-input label="{{'DESPESAS_VALOR' | npi18n}}" placeholder="" [form]='form'
                             controlname="valor">
-                          </np-input>
-                        </np-column>
-                      </np-row>
-                      <np-row divider="true">
-                        <np-column size="1">
-                          <np-button title="{{'GENERICO_ADICIONAR' | npi18n:'base'}}" type="submit"
-                            (click)="addDespesa()" color="black" [align]="'right'"></np-button>
-                        </np-column>
-                      </np-row>
+                          </gd-input>
+                        </gd-column>
+                      </gd-row>
+                      <gd-row divider="true">
+                        <gd-column size="1">
+                          <gd-button title="{{'GENERICO_ADICIONAR' | npi18n:'base'}}" type="submit"
+                            (click)="addDespesa()" color="black" [align]="'right'"></gd-button>
+                        </gd-column>
+                      </gd-row>
                     </form>
                   </div>
                   <table class="table">
@@ -83,8 +83,8 @@
               </div>
             </fieldset>
           </div>
-        </np-column>
-      </np-row>
+        </gd-column>
+      </gd-row>
     </np-widget>
   </np-widget-grid>
 </div>
