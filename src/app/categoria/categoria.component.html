@@ -2,9 +2,9 @@
   <h1>{{ 'TITULO_CATEGORIA' | npi18n }}</h1>
    <np-widget-grid>
       <np-widget title="{{ 'TITULO_CATEGORIA_CONSULTAR_CRIAR' | npi18n }}">
-      <np-alert contexto="mensagem-categoria"></np-alert>
-       <np-row>
-        <np-column size='8'>
+      <gd-alert contexto="mensagem-categoria"></gd-alert>
+       <gd-row>
+        <gd-column size='8'>
           <div class="report-adjust">
         <div style="overflow-x: auto; overflow-y: hidden">
         </div>
@@ -12,15 +12,15 @@
           <div class="widget-body">
                 <div class="table-responsive">
                   <div class="dt-toolbar no-padding">
-                      <np-row>
-                        <np-column size="1">
-                          <np-input label="{{'CATEGORIA_NOME' | npi18n}}" placeholder="" [form]='form' controlname="name">
-                          </np-input>
-                       </np-column>
-                      <np-column>
-                        <np-button title="{{'GENERICO_CRIAR' | npi18n:'base'}}" type="submit" (click)="addCategoria()" color="black" [align]="'right'"></np-button>
-                      </np-column>
-                      </np-row>
+                      <gd-row>
+                        <gd-column size="1">
+                          <gd-input label="{{'CATEGORIA_NOME' | npi18n}}" placeholder="" [form]='form' controlname="name">
+                          </gd-input>
+                       </gd-column>
+                      <gd-column>
+                        <gd-button title="{{'GENERICO_CRIAR' | npi18n:'base'}}" type="submit" (click)="addCategoria()" color="black" [align]="'right'"></gd-button>
+                      </gd-column>
+                      </gd-row>
                   </div>
                   <table class="table">
                     <thead>
@@ -42,8 +42,8 @@
         </div>
         </fieldset>
       </div>
-      </np-column>
-      </np-row>
+      </gd-column>
+      </gd-row>
       </np-widget>
   </np-widget-grid>
   </div>

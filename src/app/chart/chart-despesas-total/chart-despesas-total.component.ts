@@ -1,6 +1,7 @@
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+
 import { Subscription } from 'rxjs';
 import { Observable, Subject } from 'rxjs';
-import { Component, OnInit, Input, EventEmitter, OnDestroy } from '@angular/core';
 
 import { DespesasService } from '../../despesas/despesas.service';
 

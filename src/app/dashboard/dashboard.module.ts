@@ -8,11 +8,11 @@ import { NpWidgetModule } from '@gdesp/np-widget/np-widget.module';
 import { DashboardComponent } from './dashboard.component';
 import { ChartsModule } from 'ng2-charts';
 import { ChartDespesasTotalComponent } from '../chart/chart-despesas-total/chart-despesas-total.component';
-import { NpAlertModule } from '@gdesp/np-alert/np-alert.module';
-import { NpContextService } from '@gdesp/np-context/np-context.service';
+import { GdAlertModule } from '@gdesp/gd-alert/gd-alert.module';
+import { GdContextService } from '@gdesp/gd-context/gd-context.service';
 import { DespesasService } from './../despesas/despesas.service';
-import { NpFormModule } from '@gdesp/np-form/np-form.module';
-import { NpEventService } from '@gdesp/np-event/np-event.service';
+import { GdFormModule } from '@gdesp/gd-form/gd-form.module';
+import { GdEventService } from '@gdesp/gd-event/gd-event.service';
 
 @NgModule({
   declarations: [DashboardComponent, ChartDespesasTotalComponent],
@@ -21,10 +21,10 @@ import { NpEventService } from '@gdesp/np-event/np-event.service';
     DashboardRoutingModule,
     NpWidgetGridModule,
     NpWidgetModule,
-    NpFormModule,
+    GdFormModule,
     ChartsModule,
-    NpAlertModule
+    GdAlertModule
   ],
-  providers: [DespesasService, ElectronService, NpContextService, NpEventService]
+  providers: [DespesasService, ElectronService, GdContextService, GdEventService]
 })
 export class DashboardModule { }

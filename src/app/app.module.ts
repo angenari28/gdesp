@@ -1,15 +1,13 @@
-import { GdProfileModule } from './np-shared/gd-profile/gd-profile.module';
-import { GdProfileComponent } from './np-shared/gd-profile/gd-profile.component';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { NpLayoutComponent, NpAppComponent } from './app.component';
-import { NpSharedModule } from './np-shared/np-shared.module';
-import { NpEndpointService } from './np-shared/api/np-endpoint.service';
-import { NpEventService } from './np-shared/np-event/np-event.service';
-import { NpContextService } from './np-shared/np-context/np-context.service';
+import { GdSharedModule } from './gd-shared/gd-shared.module';
+import { NpEndpointService } from './gd-shared/api/np-endpoint.service';
+import { GdEventService } from './gd-shared/gd-event/gd-event.service';
+import { GdContextService } from './gd-shared/gd-context/gd-context.service';
 
 @NgModule({
   declarations: [
@@ -19,13 +17,13 @@ import { NpContextService } from './np-shared/np-context/np-context.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NpSharedModule,
+    GdSharedModule,
     RouterModule
   ],
   providers: [
     NpEndpointService,
-    NpContextService,
-    NpEventService],
+    GdContextService,
+    GdEventService],
   bootstrap: [NpAppComponent]
 })
 export class AppModule { }

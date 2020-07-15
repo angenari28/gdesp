@@ -1,4 +1,3 @@
-import { DespesasModalComponent } from './despesas-modal/despesas-modal.component';
 import { Router } from '@angular/router';
 import { FormGroup } from '@angular/forms';
 import { Component, OnInit, AfterViewInit } from '@angular/core';
@@ -9,19 +8,18 @@ import { CategoriaEntity } from './../../../database/src/domain/entity/categoria
 import { GdMesesService } from '@gdesp/gd-meses/gd-meses.service';
 import { NpI18nService } from '@gdesp/np-i18n/np-i18n.service';
 import { DespesasService } from './despesas.service';
+import { DespesasModalComponent } from './despesas-modal/despesas-modal.component';
 
 import { DespesasModel } from './despesas.component.model';
-import { GdValidacaoService } from '@gdesp/np-form/gd-validacao/gd-validacao.service';
-import { GdValidacaoEspecificacoes } from '@gdesp/np-form/gd-validacao/gd-validacao.especificacoes';
-import { NpContextService } from '@gdesp/np-context/np-context.service';
-import { NpEventService } from '@gdesp/np-event/np-event.service';
-import { GdMenuContextoInterface } from '@gdesp/gd-menu-contexto/gd-menu-contexto.interface';
-import { deleteDespesa } from '../../../database/src/domain/channel/despesa.channel';
-import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
+import { GdValidacaoService } from '@gdesp/gd-form/gd-validacao/gd-validacao.service';
+import { GdValidacaoEspecificacoes } from '@gdesp/gd-form/gd-validacao/gd-validacao.especificacoes';
+import { GdContextService } from '@gdesp/gd-context/gd-context.service';
+import { GdEventService } from '@gdesp/gd-event/gd-event.service';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
   templateUrl: './despesas.component.html',
-  styleUrls: ['./despesas.component.less', '../np-shared/np-form/gd-table/gd-table.component.css']
+  styleUrls: ['./despesas.component.less', '../gd-shared/gd-form/gd-table/gd-table.component.css']
 })
 export class DespesasComponent implements OnInit, AfterViewInit {
 
@@ -38,13 +36,14 @@ export class DespesasComponent implements OnInit, AfterViewInit {
   public modal: DespesasModalComponent;
   public bsModalRef: BsModalRef;
 
-  constructor(private service: DespesasService,
-              public i18n: NpI18nService,
-              public serviceMeses: GdMesesService,
-              public router: Router,
-              private contexto: NpContextService,
-              private event: NpEventService,
-              private modalService: BsModalService) {
+  constructor(
+    private service: DespesasService,
+    public i18n: NpI18nService,
+    public serviceMeses: GdMesesService,
+    public router: Router,
+    private contexto: GdContextService,
+    private event: GdEventService,
+    private modalService: BsModalService) {
     this.setValidations();
   }
 
@@ -54,6 +53,11 @@ export class DespesasComponent implements OnInit, AfterViewInit {
     this.model = new DespesasModel();
 
     this.setValidations();
+
+    this.inicializarDados();
+  }
+
+  public inicializarDados() {
 
     this.getCategoria();
 
@@ -72,10 +76,14 @@ export class DespesasComponent implements OnInit, AfterViewInit {
   }
 
   private getCategoria(): void {
+    this.listaCategorias = [];
+
     this.service.getCategoria().subscribe((items) => (this.listaCategorias = items));
   }
 
   private getMeses(): void {
+    this.listaMeses = [];
+
     this.serviceMeses.getMeses().subscribe((meses) => {
       this.listaMeses = meses;
       this.model.mes = +(new Date().getUTCMonth() - 1);
@@ -86,6 +94,7 @@ export class DespesasComponent implements OnInit, AfterViewInit {
 
   private getDespesas(): void {
     this.form.reset();
+    this.retornoModel = [];
 
     let model = [];
 
@@ -99,14 +108,11 @@ export class DespesasComponent implements OnInit, AfterViewInit {
       anos.push(x.ano);
     });
 
-    anos = anos.filter((ano, prox) => {
-      return anos.indexOf(ano) === prox;
-    });
+    anos = this.retirarItensDuplicados(anos);
 
     anos.forEach((ano, indice) => {
       let mesAno = [];
-      let valorMes = 0;
-      let categorias = [];
+
 
       model.forEach(item => {
 
@@ -115,11 +121,12 @@ export class DespesasComponent implements OnInit, AfterViewInit {
         }
       });
 
-      mesAno = mesAno.filter((item, prox) => {
-        return mesAno.indexOf(item) === prox;
-      });
+      mesAno = this.retirarItensDuplicados(mesAno);
 
       mesAno.forEach(mes => {
+        let valorMes = 0;
+        let categorias = [];
+
         model.forEach(data => {
           if (mes === data.mes && ano === data.ano) {
             valorMes += +data.valor;
@@ -127,9 +134,8 @@ export class DespesasComponent implements OnInit, AfterViewInit {
           }
         });
 
-        categorias = categorias.filter((item, prox) => {
-          return categorias.indexOf(item) === prox;
-        });
+        categorias = this.retirarItensDuplicados(categorias);
+
         this.retornoModel.push({ idCategoria: categorias, ano: ano, mes: mes, valor: valorMes });
 
         this.retornoModel.forEach(x => {
@@ -149,6 +155,12 @@ export class DespesasComponent implements OnInit, AfterViewInit {
     });
   }
 
+  retirarItensDuplicados(obj: any): any {
+    return obj.filter((item, prox) => {
+      return obj.indexOf(item) === prox;
+    });
+  }
+
   public addDespesa(): void {
 
     if (this.form.invalid) {
@@ -157,9 +169,10 @@ export class DespesasComponent implements OnInit, AfterViewInit {
 
     let despesa = new DespesaEntity();
     despesa = this.model;
-    this.service.addDespesa(despesa).subscribe((items) => (this.retornoModel = items));
+    this.service.addDespesa(despesa).subscribe();
     this.msgSucesso(this.i18n.getTranslation('SUCESSO_INCLUSAO'));
-    this.getDespesas();
+
+    this.inicializarDados();
   }
 
   ngAfterViewInit() {
@@ -167,9 +180,9 @@ export class DespesasComponent implements OnInit, AfterViewInit {
   }
 
   abrirModal(dados) {
-    const initialState = [{data: dados}];
+    const initialState = [{ data: dados }];
 
-    this.bsModalRef = this.modalService.show(DespesasModalComponent, {initialState});
+    this.bsModalRef = this.modalService.show(DespesasModalComponent, { initialState });
   }
 
   carregarContexto() {

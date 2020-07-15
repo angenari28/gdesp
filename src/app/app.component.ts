@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { remote } from 'electron';
 
 @Component({
   selector: 'np-app',
