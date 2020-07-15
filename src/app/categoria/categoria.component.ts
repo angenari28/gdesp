@@ -1,6 +1,6 @@
 import { FormGroup, FormControl } from '@angular/forms';
 import { OnDestroy } from '@angular/core';
-import { NpI18nService } from '@gdesp/np-i18n/np-i18n.service';
+import { GdI18nService } from '@gdesp/gd-i18n/gd-i18n.service';
 import { Component, OnInit } from '@angular/core';
 
 import { CategoriaService } from './categoria.service';
@@ -16,7 +16,7 @@ public model: CategoriaEntity[];
 public form: FormGroup;
 
   constructor(private service: CategoriaService,
-              public i18n: NpI18nService,
+              public i18n: GdI18nService,
               ) {
               }
 

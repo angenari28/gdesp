@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { NpI18nModule } from '@gdesp/np-i18n/np-i18n.module';
+import { Gdi18nModule } from '@gdesp/gd-i18n/gd-i18n.module';
 
 import { GdMenuContextoComponent } from './gd-menu-contexto.component';
 
@@ -16,7 +16,7 @@ import { ComponentLoaderFactory } from 'ngx-bootstrap/component-loader';
     imports: [
         CommonModule,
         RouterModule,
-        NpI18nModule,
+        Gdi18nModule,
         PopoverModule
     ],
     exports: [

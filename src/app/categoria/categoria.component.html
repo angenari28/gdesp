@@ -1,7 +1,7 @@
 <div class="section">
-  <h1>{{ 'TITULO_CATEGORIA' | npi18n }}</h1>
+  <h1>{{ 'TITULO_CATEGORIA' | gdi18n }}</h1>
    <np-widget-grid>
-      <np-widget title="{{ 'TITULO_CATEGORIA_CONSULTAR_CRIAR' | npi18n }}">
+      <np-widget title="{{ 'TITULO_CATEGORIA_CONSULTAR_CRIAR' | gdi18n }}">
       <gd-alert contexto="mensagem-categoria"></gd-alert>
        <gd-row>
         <gd-column size='8'>
@@ -14,18 +14,18 @@
                   <div class="dt-toolbar no-padding">
                       <gd-row>
                         <gd-column size="1">
-                          <gd-input label="{{'CATEGORIA_NOME' | npi18n}}" placeholder="" [form]='form' controlname="name">
+                          <gd-input label="{{'CATEGORIA_NOME' | gdi18n}}" placeholder="" [form]='form' controlname="name">
                           </gd-input>
                        </gd-column>
                       <gd-column>
-                        <gd-button title="{{'GENERICO_CRIAR' | npi18n:'base'}}" type="submit" (click)="addCategoria()" color="black" [align]="'right'"></gd-button>
+                        <gd-button title="{{'GENERICO_CRIAR' | gdi18n:'base'}}" type="submit" (click)="addCategoria()" color="black" [align]="'right'"></gd-button>
                       </gd-column>
                       </gd-row>
                   </div>
                   <table class="table">
                     <thead>
                       <tr>
-                        <th>{{'CATEGORIA_NOME' | npi18n }}</th>
+                        <th>{{'CATEGORIA_NOME' | gdi18n }}</th>
                       </tr>
                     </thead>
                       <tbody>

@@ -1,17 +1,17 @@
-<np-frame [nav-expanded]="navExpanded" *ngIf="init">
+<gd-frame [nav-expanded]="navExpanded" *ngIf="init">
   <gd-content content>
     <div style="text-align:center"><p style="flex:1">Aguarde...</p></div>
   </gd-content>
-</np-frame>
-<np-frame [nav-expanded]="navExpanded">
-  <np-header header [logo-click-callback]="logoClick" >
+</gd-frame>
+<gd-frame [nav-expanded]="navExpanded">
+  <gd-header header [logo-click-callback]="logoClick" >
     <np-nav-button menu-button [callback]="menuClick"></np-nav-button>
     <gd-profile tools ></gd-profile>
-  </np-header>
+  </gd-header>
   <np-nav nav></np-nav>
   <gd-content content>
     <router-outlet #outlet="outlet"></router-outlet>
   </gd-content>
   <gd-footer footer></gd-footer>
-</np-frame>
+</gd-frame>
 

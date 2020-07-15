@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { NpI18nService } from '@gdesp/np-i18n/np-i18n.service';
+import { GdI18nService } from '@gdesp/gd-i18n/gd-i18n.service';
 import { GdContextService } from '@gdesp/gd-context/gd-context.service';
 import { GdEventService } from '@gdesp/gd-event/gd-event.service';
 import { GdMenuContextoInterface } from '@gdesp/gd-menu-contexto/gd-menu-contexto.interface';
@@ -32,7 +32,7 @@ export class DespesasModalComponent implements OnInit {
     public service: DespesasService,
     private event: GdEventService,
     private contexto: GdContextService,
-    private i18n: NpI18nService) { }
+    private i18n: GdI18nService) { }
 
   ngOnInit(): void {
     this.inicializarDados();

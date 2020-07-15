@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { GdContextService } from '../gd-context/gd-context.service';
 import { GdEventService } from '../gd-event/gd-event.service';
 import { GdProfileService } from './gd-profile.service';
-import { NpI18nService } from '../np-i18n/np-i18n.service';
+import { GdI18nService } from '../gd-i18n/gd-i18n.service';
 
 @Component({
   selector: 'gd-profile',
@@ -23,7 +23,7 @@ export class GdProfileComponent implements OnInit {
     public router: Router,
     public contexto: GdContextService,
     public event: GdEventService,
-    public i18n: NpI18nService
+    public i18n: GdI18nService
   ) {
   }
 

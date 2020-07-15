@@ -4,49 +4,49 @@ import { GdProfileModule } from './gd-profile/gd-profile.module';
 import { GdFooterModule } from './gd-footer/gd-footer.module';
 import { NpNavModule } from './np-nav/np-nav.module';
 import { NpNavButtonModule } from './np-nav-button/np-nav-button.module';
-import { NpHeaderModule } from './np-header/np-header.module';
+import { GdHeaderModule } from './gd-header/gd-header.module';
 import { GdContentModule } from './gd-content/gd-content.module';
-import { NpFrameModule } from './np-frame/np-frame.module';
+import { GdFrameModule } from './gd-frame/gd-frame.module';
 import { NpWidgetModule } from './np-widget/np-widget.module';
 import { NpWidgetGridModule } from './np-widget-grid/np-widget-grid.module';
-import { NpI18nModule } from './np-i18n/np-i18n.module';
+import { Gdi18nModule } from './gd-i18n/gd-i18n.module';
 import { GdAlertModule } from './gd-alert/gd-alert.module';
 import { GdFormModule } from './gd-form/gd-form.module';
-import { NpJsonModule } from './np-json/np-json.module';
-import { NpLoaderModule } from './np-loader/np-loader.module';
+import { GdJsonModule } from './gd-json/gd-json.module';
+import { GdLoaderModule } from './gd-loader/gd-loader.module';
 import { GdMenuContextoModule } from '@gdesp/gd-menu-contexto/gd-menu-contexto.module';
 
 @NgModule({
 
-  imports: [NpFrameModule,
+  imports: [GdFrameModule,
     GdContentModule,
-    NpHeaderModule,
+    GdHeaderModule,
     NpNavButtonModule,
     NpNavModule,
     GdFooterModule,
-    NpJsonModule,
+    GdJsonModule,
     NpWidgetGridModule,
     NpWidgetModule,
-    NpI18nModule,
+    Gdi18nModule,
     GdAlertModule,
     GdFormModule,
-    NpLoaderModule,
+    GdLoaderModule,
     GdMenuContextoModule,
     GdProfileModule
   ],
-  exports: [NpFrameModule,
+  exports: [GdFrameModule,
     GdContentModule,
-    NpHeaderModule,
+    GdHeaderModule,
     NpNavButtonModule,
     NpNavModule,
     GdFooterModule,
-    NpJsonModule,
+    GdJsonModule,
     NpWidgetGridModule,
     NpWidgetModule,
-    NpI18nModule,
+    Gdi18nModule,
     GdAlertModule,
     GdFormModule,
-    NpLoaderModule,
+    GdLoaderModule,
     GdMenuContextoModule,
     GdProfileModule
   ]

@@ -8,7 +8,7 @@ import { DespesasService } from './../despesas/despesas.service';
 import { CategoriaEntity } from './../../../database/src/domain/entity/categoria.entity';
 import { GdEventService } from '../gd-shared/gd-event/gd-event.service';
 import { GdContextService } from '../gd-shared/gd-context/gd-context.service';
-import { NpI18nService } from './../gd-shared/np-i18n/np-i18n.service';
+import { GdI18nService } from './../gd-shared/gd-i18n/gd-i18n.service';
 import { GdMesesService } from '@gdesp/gd-meses/gd-meses.service';
 
 @Component({

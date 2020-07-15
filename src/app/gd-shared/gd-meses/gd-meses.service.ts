@@ -1,5 +1,5 @@
 import { Observable, of } from 'rxjs';
-import { NpI18nService } from '@gdesp/np-i18n/np-i18n.service';
+import { GdI18nService } from '@gdesp/gd-i18n/gd-i18n.service';
 import { Injectable, OnInit } from '@angular/core';
 
 @Injectable({
@@ -7,7 +7,7 @@ import { Injectable, OnInit } from '@angular/core';
 })
 export class GdMesesService {
 
-  constructor(private i18n: NpI18nService) {
+  constructor(private i18n: GdI18nService) {
   }
 
   getMeses(): Observable<any> {

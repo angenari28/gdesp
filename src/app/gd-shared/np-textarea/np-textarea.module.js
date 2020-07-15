@@ -9,7 +9,7 @@ exports.__esModule = true;
 var forms_1 = require("@angular/forms");
 var core_1 = require("@angular/core");
 var common_1 = require("@angular/common");
-var np_i18n_module_1 = require("./../np-i18n/np-i18n.module");
+var np_i18n_module_1 = require("./../gd-i18n/gd-i18n.module");
 var np_textarea_component_1 = require("./np-textarea.component");
 var NpTextareaModule = /** @class */ (function () {
     function NpTextareaModule() {
@@ -21,7 +21,7 @@ var NpTextareaModule = /** @class */ (function () {
                 common_1.CommonModule,
                 forms_1.ReactiveFormsModule,
                 forms_1.FormsModule,
-                np_i18n_module_1.NpI18nModule
+                np_i18n_module_1.Gdi18nModule
             ],
             exports: [np_textarea_component_1.NpTextareaComponent]
         })

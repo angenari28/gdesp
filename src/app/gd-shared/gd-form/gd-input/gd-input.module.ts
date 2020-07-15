@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { NpI18nModule } from '@gdesp/np-i18n/np-i18n.module';
+import { Gdi18nModule } from '@gdesp/gd-i18n/gd-i18n.module';
 import { GdInputComponent } from './gd-input.component';
 
 @NgModule({
@@ -13,7 +13,7 @@ import { GdInputComponent } from './gd-input.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    NpI18nModule
+    Gdi18nModule
   ],
   exports: [
     GdInputComponent

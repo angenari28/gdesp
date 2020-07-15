@@ -6,7 +6,7 @@ import { DespesaEntity } from './../../../database/src/domain/entity/despesa.ent
 import { CategoriaEntity } from './../../../database/src/domain/entity/categoria.entity';
 
 import { GdMesesService } from '@gdesp/gd-meses/gd-meses.service';
-import { NpI18nService } from '@gdesp/np-i18n/np-i18n.service';
+import { GdI18nService } from '@gdesp/gd-i18n/gd-i18n.service';
 import { DespesasService } from './despesas.service';
 import { DespesasModalComponent } from './despesas-modal/despesas-modal.component';
 
@@ -38,7 +38,7 @@ export class DespesasComponent implements OnInit, AfterViewInit {
 
   constructor(
     private service: DespesasService,
-    public i18n: NpI18nService,
+    public i18n: GdI18nService,
     public serviceMeses: GdMesesService,
     public router: Router,
     private contexto: GdContextService,

@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormControl, FormArray, FormGroup } from '@angular/forms';
-import { NpI18nService } from '@gdesp/np-i18n/np-i18n.service';
-import { NumeroParser } from '@gdesp/np-i18n/parsers/numero.parser';
+import { GdI18nService } from '@gdesp/gd-i18n/gd-i18n.service';
+import { NumeroParser } from '@gdesp/gd-i18n/parsers/numero.parser';
 
 @Injectable()
 
 export class GdValidacaoEspecificacoes {
     public interval: any;
 
-    constructor(public i18n: NpI18nService, public router: Router) {
+    constructor(public i18n: GdI18nService, public router: Router) {
 
     }
 

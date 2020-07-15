@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { NgSelectModule } from '@ng-select/ng-select';
 import { GdSelectComponent } from './gd-select.component';
-import { NpI18nModule } from '@gdesp/np-i18n/np-i18n.module';
+import { Gdi18nModule } from '@gdesp/gd-i18n/gd-i18n.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +14,7 @@ import { NpI18nModule } from '@gdesp/np-i18n/np-i18n.module';
     CommonModule,
     FormsModule,
     NgSelectModule,
-    NpI18nModule
+    Gdi18nModule
   ],
   exports: [
     GdSelectComponent

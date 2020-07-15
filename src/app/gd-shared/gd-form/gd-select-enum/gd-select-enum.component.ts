@@ -2,7 +2,7 @@
 import { FormGroup } from '@angular/forms';
 
 import { GdEventService } from '../../gd-event/gd-event.service';
-import { NpI18nService } from '../../np-i18n/np-i18n.service';
+import { GdI18nService } from '../../gd-i18n/gd-i18n.service';
 
 @Component({
     selector: 'gd-select-enum',
@@ -26,7 +26,7 @@ export class GdSelectEnumComponent implements OnInit {
     @Input() change: Function;
 
     constructor(public event: GdEventService,
-                public i18n: NpI18nService) {
+                public i18n: GdI18nService) {
 
         this.visible = true;
         this.disabled = false;

@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ControlContainer, FormGroupDirective, FormGroup } from '@angular/forms';
 
-import { NpI18nService } from '@gdesp/np-i18n/np-i18n.service';
+import { GdI18nService } from '@gdesp/gd-i18n/gd-i18n.service';
 
 @Component({
   selector: 'gd-input',
@@ -23,10 +23,10 @@ export class GdInputComponent implements OnInit {
   @Input() public min: number;
   @Input() public max: number;
 
-  constructor(public npi18n: NpI18nService) {
+  constructor(public gdi18n: GdI18nService) {
   }
 
   ngOnInit() {
-    this.npi18n.loadResource();
+    this.gdi18n.loadResource();
   }
 }
