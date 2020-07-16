@@ -5720,67 +5720,10 @@ textarea {
   top: 17px;
 }
 
-
-
-.circle-icon-color {
-  float: left;
-  margin: 6px;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  font-size: 15px;
-  color: #fff;
-  line-height: 30px;
-  text-align: center;
-}
-
-  .circle-icon-color.Branco {
-    background-color: white;
-  }
-
-  .circle-icon-color.Cinza {
-    background-color: lightgray;
-  }
-
-  .circle-icon-color.Azul {
-    background-color: blue;
-  }
-
-  .circle-icon-color.Verde {
-    background-color: green;
-  }
-
-  .circle-icon-color.Laranja {
-    background-color: orange;
-  }
-
-  .circle-icon-color.Vermelho {
-    background-color: red;
-  }
-
-.fieldset-controle {
-  margin: -10px 0px 15px;
-  padding-left: 13px;
-}
-
-.circle-icon-controle-height {
-  height: 30px;
-  padding-top: 10px;
-}
-
-.clock {
-  float: right;
-  padding-bottom: 13px;
-  text-align: right;
-}
-
 .remove-sign {
   color: darkred;
 }
 
-.controle-canvas {
-  min-height: 300px;
-}
 
 .row-eq-height {
   display: -webkit-box;
@@ -5809,22 +5752,6 @@ textarea {
 .wrap-word {
   word-wrap: break-word;
 }
-
-.controle-icones {
-  vertical-align: middle !important;
-}
-
-  .controle-icones .fa-check-circle {
-    color: green !important;
-  }
-
-  .controle-icones .fa-exclamation-circle {
-    color: orange !important;
-  }
-
-  .controle-icones .fa-times-circle {
-    color: red !important;
-  }
 
 @media print {
   * {
@@ -5859,37 +5786,7 @@ textarea {
     #printable ~ * {
       display: none;
     }
-  /*.printable-cartao {
-        border-width: thin;
-        border-style: solid;
-        border-color: grey;
-        width: 200px;
-        height: 300px;
-        margin: auto;
 
-        & .titulo-cartao {
-            text-align: center;
-            font-size: 25px;
-            width: 100%;
-
-            & img {
-                width: 150px;
-            }
-        }
-
-        & .titulo-secundario {
-            text-align: center;
-            font-size: 20px;
-            width: 100%;
-        }
-
-        & .info-adicional {
-            text-align: center;
-            width: 100%;
-            height: 38px;
-            vertical-align: bottom;
-        }
-    }*/
   .relatorio .dataTables_info {
     display: none;
   }
@@ -5902,45 +5799,6 @@ textarea {
     display: none;
   }
 }
-
-.printable-cartao {
-  border-width: thin;
-  border-style: solid;
-  border-color: grey;
-  width: 220px;
-  height: 300px;
-  margin: auto;
-  margin-bottom: 29px;
-}
-
-  .printable-cartao .titulo-cartao {
-    text-align: center;
-    font-size: 15px;
-    font-weight: bold;
-    width: 100%;
-    height: 50px;
-    vertical-align: bottom;
-  }
-
-  .printable-cartao img {
-    width: 150px;
-  }
-
-  .printable-cartao .titulo-secundario {
-    text-align: center;
-    font-size: 15px;
-    font-weight: bold;
-    width: 100%;
-    height: 50px;
-    vertical-align: bottom;
-  }
-
-  .printable-cartao .info-adicional {
-    text-align: center;
-    width: 100%;
-    height: 50px;
-    vertical-align: bottom;
-  }
 
 .pointer {
   cursor: pointer;
