@@ -5720,9 +5720,7 @@ textarea {
   top: 17px;
 }
 
-.image-equipamento {
-  background: none !important;
-}
+
 
 .circle-icon-color {
   float: left;
@@ -5791,107 +5789,6 @@ textarea {
   display: flex;
 }
 
-.controle-equipamentos canvas {
-  width: 100%;
-  height: 100%;
-}
-
-.controle-equipamentos .widget-body {
-  padding: 0 0px 0 13px;
-  background-color: #eeeeee !important;
-}
-
-  .controle-equipamentos .widget-body .conteudo-controle-esq {
-    background-color: #fff;
-    border-right: 1px solid darkgray;
-  }
-
-    .controle-equipamentos .widget-body .conteudo-controle-esq a {
-      padding: 20px;
-      text-decoration: underline;
-    }
-
-    .controle-equipamentos .widget-body .conteudo-controle-esq .form-actions {
-      margin-left: 0;
-      margin-right: 0;
-      margin-bottom: 0;
-    }
-
-    .controle-equipamentos .widget-body .conteudo-controle-esq .conteudo-sensores {
-      padding: 20px;
-    }
-
-      .controle-equipamentos .widget-body .conteudo-controle-esq .conteudo-sensores .row .status-sensor {
-        margin-left: -15px;
-      }
-
-        .controle-equipamentos .widget-body .conteudo-controle-esq .conteudo-sensores .row .status-sensor span {
-          line-height: 3;
-        }
-
-  .controle-equipamentos .widget-body .conteudo-controle-dir {
-    padding: 0 13px 0 0;
-  }
-
-.controle-equipamentos .menu-equipamentos ul {
-  padding: 0;
-}
-
-  .controle-equipamentos .menu-equipamentos ul li {
-    list-style-type: none;
-  }
-
-    .controle-equipamentos .menu-equipamentos ul li.item-ativo {
-      background-color: lightgray;
-    }
-
-    .controle-equipamentos .menu-equipamentos ul li .circle-icon {
-      display: inline-block;
-      margin: 6px;
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      font-size: 15px;
-      color: #fff;
-      line-height: 30px;
-      text-align: center;
-      background-color: #000000;
-      cursor: pointer;
-    }
-
-      .controle-equipamentos .menu-equipamentos ul li .circle-icon.Branco {
-        background-color: white;
-      }
-
-      .controle-equipamentos .menu-equipamentos ul li .circle-icon.Cinza {
-        background-color: lightgray;
-      }
-
-      .controle-equipamentos .menu-equipamentos ul li .circle-icon.Azul {
-        background-color: blue;
-      }
-
-      .controle-equipamentos .menu-equipamentos ul li .circle-icon.Verde {
-        background-color: green;
-      }
-
-      .controle-equipamentos .menu-equipamentos ul li .circle-icon.Laranja {
-        background-color: orange;
-      }
-
-      .controle-equipamentos .menu-equipamentos ul li .circle-icon.Vermelho {
-        background-color: red;
-      }
-
-      .controle-equipamentos .menu-equipamentos ul li .circle-icon span {
-        display: inline-block;
-      }
-
-    .controle-equipamentos .menu-equipamentos ul li a {
-      padding-left: 10px;
-      line-height: 3;
-      border-left: 1px solid;
-    }
 
 .form-groupradio input[type=radio] {
   top: 2px;
@@ -6133,17 +6030,6 @@ textarea {
     margin-right: -5px;
     background: none;
     box-shadow: none;
-  }
-
-.table-gruposdeequipamentos-grafico tr td {
-  min-width: 80px;
-  height: 80px;
-  padding: 5px;
-  text-align: center;
-}
-
-  .table-gruposdeequipamentos-grafico tr td span {
-    vertical-align: middle;
   }
 
 .bg-color-white {
