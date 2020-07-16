@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 
 import { NpNavComponent } from './np-nav.component';
 import { NpNavService } from './np-nav.service';
-import { NpI18nModule } from '../np-i18n/np-i18n.module';
+import { Gdi18nModule } from '../gd-i18n/gd-i18n.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +13,7 @@ import { NpI18nModule } from '../np-i18n/np-i18n.module';
   imports: [
     RouterModule,
     CommonModule,
-    NpI18nModule
+    Gdi18nModule
   ],
   exports: [
     NpNavComponent

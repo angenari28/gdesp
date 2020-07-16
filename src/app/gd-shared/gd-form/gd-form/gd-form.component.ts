@@ -1,7 +1,7 @@
-import { Component, Input, ContentChild, OnInit, DoCheck } from '@angular/core';
+import { Component, Input, OnInit, DoCheck } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
-import { NpLoaderService, TipoLoaderEnum } from '@gdesp/np-loader/np-loader.service';
+import { GdLoaderService, TipoLoaderEnum } from '@gdesp/gd-loader/gd-loader.service';
 import { NpEndpointService } from '../../api/np-endpoint.service';
 
 @Component({
@@ -22,7 +22,7 @@ export class GdFormComponent implements OnInit, DoCheck {
   public translatedEndpoint: string[];
 
   constructor(
-    public loader: NpLoaderService,
+    public loader: GdLoaderService,
     public endpointService: NpEndpointService) {
 
   }

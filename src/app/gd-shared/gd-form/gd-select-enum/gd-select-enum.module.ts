@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { NpI18nModule } from '../../np-i18n/np-i18n.module';
+import { Gdi18nModule } from '../../gd-i18n/gd-i18n.module';
 import { GdSelectEnumComponent } from './gd-select-enum.component';
 
 @NgModule({
@@ -14,7 +14,7 @@ import { GdSelectEnumComponent } from './gd-select-enum.component';
         ReactiveFormsModule,
         CommonModule,
         FormsModule,
-        NpI18nModule
+        Gdi18nModule
     ],
     exports: [
       GdSelectEnumComponent

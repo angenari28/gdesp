@@ -1,7 +1,7 @@
 <div class="section">
-  <h1>{{ 'TITULO_DESPESAS' | npi18n }}</h1>
+  <h1>{{ 'TITULO_DESPESAS' | gdi18n }}</h1>
   <np-widget-grid>
-    <np-widget title="{{ 'TITULO_DESPESAS_ADICIONAR' | npi18n }}">
+    <np-widget title="{{ 'TITULO_DESPESAS_ADICIONAR' | gdi18n }}">
       <gd-alert contexto="mensagem-despesas"></gd-alert>
       <gd-row>
         <gd-column size='8'>
@@ -17,7 +17,7 @@
                         <div *ngIf="this.listaAnos.length > 0">
                           <gd-column size="1">
                             <gd-select [items]="this.listaAnos" [(selected)]="model.ano"
-                              label="{{'DESPESAS_ANO' | npi18n}}" placeholder="Selecionar o ano" bindValue="id"
+                              label="{{'DESPESAS_ANO' | gdi18n}}" placeholder="Selecionar o ano" bindValue="id"
                               bindLabel="ano">
                             </gd-select>
                           </gd-column>
@@ -25,26 +25,26 @@
                         <div *ngIf="this.listaMeses.length > 0">
                           <gd-column size="1">
                             <gd-select [items]="this.listaMeses" [(selected)]="model.mes"
-                              label="{{'DESPESAS_MES' | npi18n}}" placeholder="Selecionar o mes" bindValue="id"
+                              label="{{'DESPESAS_MES' | gdi18n}}" placeholder="Selecionar o mes" bindValue="id"
                               bindLabel="nome">
                             </gd-select>
                           </gd-column>
                         </div>
                         <gd-column size="1">
                           <gd-select [items]="this.listaCategorias" [(selected)]="model.idCategoria"
-                            label="{{'DESPESAS_CATEGORIAS' | npi18n}}" placeholder="Selecionar a categoria"
+                            label="{{'DESPESAS_CATEGORIAS' | gdi18n}}" placeholder="Selecionar a categoria"
                             bindValue="id" bindLabel="name">
                           </gd-select>
                         </gd-column>
                         <gd-column size="1">
-                          <gd-input label="{{'DESPESAS_VALOR' | npi18n}}" placeholder="" [form]='form'
+                          <gd-input label="{{'DESPESAS_VALOR' | gdi18n}}" placeholder="" [form]='form'
                             controlname="valor">
                           </gd-input>
                         </gd-column>
                       </gd-row>
                       <gd-row divider="true">
                         <gd-column size="1">
-                          <gd-button title="{{'GENERICO_ADICIONAR' | npi18n:'base'}}" type="submit"
+                          <gd-button title="{{'GENERICO_ADICIONAR' | gdi18n:'base'}}" type="submit"
                             (click)="addDespesa()" color="black" [align]="'right'"></gd-button>
                         </gd-column>
                       </gd-row>
@@ -56,9 +56,9 @@
                         <!-- <th style="width: 14px; height: 20px;"><span
                             class="btn-customizar-coluna fa fa-th-large"></span>
                         </th> -->
-                        <th>{{'DESPESAS_MES_ANO' | npi18n }}</th>
-                        <th>{{'DESPESAS_VALOR' | npi18n }}</th>
-                        <th>{{'DESPESAS_CATEGORIAS' | npi18n }}</th>
+                        <th>{{'DESPESAS_MES_ANO' | gdi18n }}</th>
+                        <th>{{'DESPESAS_VALOR' | gdi18n }}</th>
+                        <th>{{'DESPESAS_CATEGORIAS' | gdi18n }}</th>
                       </tr>
                     </thead>
                     <tbody>

@@ -4,7 +4,7 @@ import { environment } from '../../../environments/environment';
 
 import { Observable, of } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
-import { NpJSONService } from '../np-json/np-json.service';
+import { GdJSONService } from '../gd-json/gd-json.service';
 
 @Injectable()
 
@@ -17,7 +17,7 @@ export class NpEndpointService {
     public endpointURL: string;
     public endpointBaseURL: string;
 
-    constructor(public jsonApiService: NpJSONService) {
+    constructor(public jsonApiService: GdJSONService) {
 
         if (NpEndpointService.instance) {
             return NpEndpointService.instance;

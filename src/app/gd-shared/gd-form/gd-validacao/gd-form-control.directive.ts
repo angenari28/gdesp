@@ -1,7 +1,7 @@
 import { Directive, ElementRef, HostListener, Renderer2 } from '@angular/core';
 import { NgControl, AbstractControl, FormArray } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { NpI18nService } from '@gdesp/np-i18n/np-i18n.service';
+import { GdI18nService } from '@gdesp/gd-i18n/gd-i18n.service';
 import { GdEventService } from '../../gd-event/gd-event.service';
 
 @Directive({
@@ -29,7 +29,7 @@ export class GdFormControl {
     public element: ElementRef,
     public renderer: Renderer2,
     public event: GdEventService,
-    public i18n: NpI18nService,
+    public i18n: GdI18nService,
     public router: Router) {
 
     this.event.on('validation-clear', () => {

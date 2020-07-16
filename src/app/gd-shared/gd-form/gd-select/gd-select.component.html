@@ -3,14 +3,14 @@
             [multiple]="false"
             [closeOnSelect]="true"
             [searchable]="false"
-            placeholder="{{placeholder != null ? placeholder : ('SELECIONE' | npi18n:'base')}}"
+            placeholder="{{placeholder != null ? placeholder : ('SELECIONE' | gdi18n:'base')}}"
             bindLabel="{{bindLabel}}"
             bindValue="{{bindValue}}"
             [(ngModel)]="selected"
             [virtualScroll]="true"
             [ngModelOptions]="{standalone: false}"
-            notFoundText="{{'NAO_HA_ITENS_PRA_SELECIONAR' | npi18n:'base' }}"
-            clearAllText="{{'LIMPAR_TUDO' | npi18n:'base' }}"
+            notFoundText="{{'NAO_HA_ITENS_PRA_SELECIONAR' | gdi18n:'base' }}"
+            clearAllText="{{'LIMPAR_TUDO' | gdi18n:'base' }}"
             (change)="changeSelect($event)"
             id="{{label}}">
 

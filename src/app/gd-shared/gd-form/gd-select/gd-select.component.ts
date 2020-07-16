@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter, AfterViewInit, ViewChild } from '@angular/core';
 import { ControlContainer, FormGroupDirective } from '@angular/forms';
 
-import { NpI18nService } from '../../np-i18n/np-i18n.service';
+import { GdI18nService } from '../../gd-i18n/gd-i18n.service';
 import { NgSelectComponent } from '@ng-select/ng-select';
 
 @Component({
@@ -52,7 +52,7 @@ export class GdSelectComponent implements AfterViewInit {
 
   @Output() selectedChange: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor(public i18n: NpI18nService) {
+  constructor(public i18n: GdI18nService) {
   }
 
   ngAfterViewInit() {

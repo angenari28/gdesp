@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 
 import { GdMenuContextoModule } from '@gdesp/gd-menu-contexto/gd-menu-contexto.module';
 import { GdFormModule } from '@gdesp/gd-form/gd-form.module';
-import { NpI18nModule } from '@gdesp/np-i18n/np-i18n.module';
+import { Gdi18nModule } from '@gdesp/gd-i18n/gd-i18n.module';
 import { GdAlertModule } from '@gdesp/gd-alert/gd-alert.module';
 import { NpWidgetModule } from '@gdesp/np-widget/np-widget.module';
 import { NpWidgetGridModule } from '@gdesp/np-widget-grid/np-widget-grid.module';
@@ -22,7 +22,7 @@ import { ElectronService } from 'ngx-electron';
     NpWidgetGridModule,
     NpWidgetModule,
     GdAlertModule,
-    NpI18nModule,
+    Gdi18nModule,
     GdFormModule,
     GdMenuContextoModule,
     CategoriaRoutingModule

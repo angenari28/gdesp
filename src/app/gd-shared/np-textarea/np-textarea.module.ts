@@ -2,7 +2,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { NpI18nModule } from './../np-i18n/np-i18n.module';
+import { Gdi18nModule } from './../gd-i18n/gd-i18n.module';
 import { NpTextareaComponent } from './np-textarea.component';
 
 
@@ -12,7 +12,7 @@ import { NpTextareaComponent } from './np-textarea.component';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    NpI18nModule
+    Gdi18nModule
   ],
   exports: [NpTextareaComponent]
 })

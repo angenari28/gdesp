@@ -5,11 +5,11 @@
         <ng-container *ngFor="let item of acao; let i=index">
           <ng-container *ngIf="!internalDisabled[i]">
             <li *ngIf="!item.disabled && !item.callback" [class.separator]="item.separador">
-              <a>{{((item.titulo | npi18n:'base') == item.titulo) ? (item.titulo | npi18n) : (item.titulo | npi18n:'base')}}</a>
+              <a>{{((item.titulo | gdi18n:'base') == item.titulo) ? (item.titulo | gdi18n) : (item.titulo | gdi18n:'base')}}</a>
             </li>
             <li *ngIf="!item.disabled && item.callback" [class.separator]="item.separador">
               <a
-                (click)="pop.hide();item.callback.apply(null,[+itemArray])">{{((item.titulo | npi18n:'base') == item.titulo) ? (item.titulo | npi18n) : (item.titulo | npi18n:'base')}}</a>
+                (click)="pop.hide();item.callback.apply(null,[+itemArray])">{{((item.titulo | gdi18n:'base') == item.titulo) ? (item.titulo | gdi18n) : (item.titulo | gdi18n:'base')}}</a>
             </li>
           </ng-container>
         </ng-container>

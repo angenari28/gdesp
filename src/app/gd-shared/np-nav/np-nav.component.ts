@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { NpI18nService } from './../np-i18n/np-i18n.service';
+import { GdI18nService } from './../gd-i18n/gd-i18n.service';
 import { NpNavService } from './np-nav.service';
 
 @Component({
@@ -17,7 +17,7 @@ export class NpNavComponent implements OnInit {
     public service: NpNavService,
     public location: Location,
     public router: Router,
-    public i18n: NpI18nService) {
+    public i18n: GdI18nService) {
   }
 
   ngOnInit() {
