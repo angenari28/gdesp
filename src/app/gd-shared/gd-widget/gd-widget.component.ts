@@ -1,13 +1,13 @@
 import { Component, AfterViewInit, Input, HostBinding, HostListener, ElementRef, OnInit, DoCheck } from '@angular/core';
 
-import { NpEndpointService } from './../api/np-endpoint.service';
+import { NpEndpointService } from '../api/np-endpoint.service';
 
 @Component({
-  selector: 'np-widget',
-  templateUrl: './np-widget.component.html',
-  styleUrls: ['./np-widget.component.css']
+  selector: 'gd-widget',
+  templateUrl: './gd-widget.component.html',
+  styleUrls: ['./gd-widget.component.css']
 })
-export class NpWidgetComponent implements AfterViewInit, OnInit, DoCheck {
+export class GdWidgetComponent implements AfterViewInit, OnInit, DoCheck {
 
   @Input() public title: string;
   @Input() public colspan;

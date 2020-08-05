@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 
 import { GdProfileModule } from './gd-profile/gd-profile.module';
 import { GdFooterModule } from './gd-footer/gd-footer.module';
-import { NpNavModule } from './np-nav/np-nav.module';
-import { NpNavButtonModule } from './np-nav-button/np-nav-button.module';
+import { GdNavModule } from './gd-nav/gd-nav.module';
+import { GdNavButtonModule } from './gd-nav-button/gd-nav-button.module';
 import { GdHeaderModule } from './gd-header/gd-header.module';
 import { GdContentModule } from './gd-content/gd-content.module';
 import { GdFrameModule } from './gd-frame/gd-frame.module';
-import { NpWidgetModule } from './np-widget/np-widget.module';
-import { NpWidgetGridModule } from './np-widget-grid/np-widget-grid.module';
+import { GdWidgetModule } from './gd-widget/gd-widget.module';
+import { GdWidgetGridModule } from './gd-widget-grid/gd-widget-grid.module';
 import { Gdi18nModule } from './gd-i18n/gd-i18n.module';
 import { GdAlertModule } from './gd-alert/gd-alert.module';
 import { GdFormModule } from './gd-form/gd-form.module';
@@ -21,12 +21,12 @@ import { GdMenuContextoModule } from '@gdesp/gd-menu-contexto/gd-menu-contexto.m
   imports: [GdFrameModule,
     GdContentModule,
     GdHeaderModule,
-    NpNavButtonModule,
-    NpNavModule,
+    GdNavButtonModule,
+    GdNavModule,
     GdFooterModule,
     GdJsonModule,
-    NpWidgetGridModule,
-    NpWidgetModule,
+    GdWidgetGridModule,
+    GdWidgetModule,
     Gdi18nModule,
     GdAlertModule,
     GdFormModule,
@@ -37,12 +37,12 @@ import { GdMenuContextoModule } from '@gdesp/gd-menu-contexto/gd-menu-contexto.m
   exports: [GdFrameModule,
     GdContentModule,
     GdHeaderModule,
-    NpNavButtonModule,
-    NpNavModule,
+    GdNavButtonModule,
+    GdNavModule,
     GdFooterModule,
     GdJsonModule,
-    NpWidgetGridModule,
-    NpWidgetModule,
+    GdWidgetGridModule,
+    GdWidgetModule,
     Gdi18nModule,
     GdAlertModule,
     GdFormModule,

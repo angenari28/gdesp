@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { NpNavService } from './np-nav.service';
+import { GdNavService } from './gd-nav.service';
 
-describe('NpNavService', () => {
-  let service: NpNavService;
+describe('GdNavService', () => {
+  let service: GdNavService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(NpNavService);
+    service = TestBed.inject(GdNavService);
   });
 
   it('should be created', () => {

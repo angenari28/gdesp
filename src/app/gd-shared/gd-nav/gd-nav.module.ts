@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-import { NpNavComponent } from './np-nav.component';
-import { NpNavService } from './np-nav.service';
+import { GdNavComponent } from './gd-nav.component';
+import { GdNavService } from './gd-nav.service';
 import { Gdi18nModule } from '../gd-i18n/gd-i18n.module';
 
 @NgModule({
   declarations: [
-    NpNavComponent
+    GdNavComponent
   ],
   imports: [
     RouterModule,
@@ -16,11 +16,11 @@ import { Gdi18nModule } from '../gd-i18n/gd-i18n.module';
     Gdi18nModule
   ],
   exports: [
-    NpNavComponent
+    GdNavComponent
   ],
   providers: [
-    NpNavService
+    GdNavService
   ]
 })
 
-export class NpNavModule { }
+export class GdNavModule { }

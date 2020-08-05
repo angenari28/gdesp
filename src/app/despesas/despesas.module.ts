@@ -7,8 +7,8 @@ import { GdMenuContextoModule } from '@gdesp/gd-menu-contexto/gd-menu-contexto.m
 import { GdFormModule } from '@gdesp/gd-form/gd-form.module';
 import { Gdi18nModule } from '@gdesp/gd-i18n/gd-i18n.module';
 import { GdAlertModule } from '@gdesp/gd-alert/gd-alert.module';
-import { NpWidgetModule } from '@gdesp/np-widget/np-widget.module';
-import { NpWidgetGridModule } from '@gdesp/np-widget-grid/np-widget-grid.module';
+import { GdWidgetModule } from '@gdesp/gd-widget/gd-widget.module';
+import { GdWidgetGridModule } from '@gdesp/gd-widget-grid/gd-widget-grid.module';
 import { GdMesesService } from '@gdesp/gd-meses/gd-meses.service';
 
 import { DespesasRoutingModule } from './despesas.module.routing';
@@ -23,8 +23,8 @@ import { ModalModule, BsModalRef } from 'ngx-bootstrap/modal';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    NpWidgetGridModule,
-    NpWidgetModule,
+    GdWidgetGridModule,
+    GdWidgetModule,
     GdAlertModule,
     Gdi18nModule,
     GdFormModule,

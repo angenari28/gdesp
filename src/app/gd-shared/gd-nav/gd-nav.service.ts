@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { GdJSONService } from '../gd-json/gd-json.service';
 
 @Injectable()
-export class NpNavService {
+export class GdNavService {
 
   constructor(public jsonService: GdJSONService) { }
 

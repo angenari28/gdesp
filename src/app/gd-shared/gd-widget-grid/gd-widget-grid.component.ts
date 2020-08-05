@@ -1,11 +1,11 @@
 import { Component, OnInit, HostListener, Input } from '@angular/core';
 
 @Component({
-  selector: 'np-widget-grid',
-  templateUrl: './np-widget-grid.component.html',
-  styleUrls: ['./np-widget-grid.component.css']
+  selector: 'gd-widget-grid',
+  templateUrl: './gd-widget-grid.component.html',
+  styleUrls: ['./gd-widget-grid.component.css']
 })
-export class NpWidgetGridComponent implements OnInit {
+export class GdWidgetGridComponent implements OnInit {
   @Input() public columns;
 
   public responsiveColumns: number;

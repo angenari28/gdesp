@@ -3,17 +3,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { Gdi18nModule } from './../gd-i18n/gd-i18n.module';
-import { NpTextareaComponent } from './np-textarea.component';
+import { GdTextareaComponent } from './gd-textarea.component';
 
 
 @NgModule({
-  declarations: [NpTextareaComponent],
+  declarations: [GdTextareaComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
     Gdi18nModule
   ],
-  exports: [NpTextareaComponent]
+  exports: [GdTextareaComponent]
 })
-export class NpTextareaModule { }
+export class GdTextareaModule { }

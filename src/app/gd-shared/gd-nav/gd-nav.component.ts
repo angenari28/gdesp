@@ -2,19 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { GdI18nService } from './../gd-i18n/gd-i18n.service';
-import { NpNavService } from './np-nav.service';
+import { GdI18nService } from '../gd-i18n/gd-i18n.service';
+import { GdNavService } from './gd-nav.service';
 
 @Component({
-  selector: 'np-nav',
-  templateUrl: './np-nav.component.html',
-  styleUrls: ['./np-nav.component.css']
+  selector: 'gd-nav',
+  templateUrl: './gd-nav.component.html',
+  styleUrls: ['./gd-nav.component.css']
 })
-export class NpNavComponent implements OnInit {
+export class GdNavComponent implements OnInit {
   menu: any[];
 
   constructor(
-    public service: NpNavService,
+    public service: GdNavService,
     public location: Location,
     public router: Router,
     public i18n: GdI18nService) {

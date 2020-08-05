@@ -1,11 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'np-nav-button',
-  templateUrl: './np-nav-button.component.html',
-  styleUrls: ['./np-nav-button.component.css']
+  selector: 'gd-nav-button',
+  templateUrl: './gd-nav-button.component.html',
+  styleUrls: ['./gd-nav-button.component.css']
 })
-export class NpNavButtonComponent implements OnInit {
+export class GdNavButtonComponent implements OnInit {
 
   @Input() public callback: Function;
   public active: boolean = true;

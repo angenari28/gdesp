@@ -9,7 +9,7 @@ import { GdActionBarModule } from './gd-action-bar/gd-action-bar.module';
 import { GdFormModule as gdformModule} from '@gdesp/gd-form/gd-form/gd-form.module';
 import { GdInputModule } from './gd-input/gd-input.module';
 import { GdFieldsetComponent } from './gd-fieldset/gd-fieldset.component';
-import { NpTextareaModule } from '../np-textarea/np-textarea.module';
+import { GdTextareaModule } from '../gd-textarea/gd-textarea.module';
 import { GdSelectModule } from './gd-select/gd-select.module';
 import { GdDatepickerComponent } from './gd-datepicker/gd-datepicker.component';
 import { GdSelectEnumModule } from './gd-select-enum/gd-select-enum.module';
@@ -30,7 +30,7 @@ import { GdSelectEnumModule } from './gd-select-enum/gd-select-enum.module';
     gdformModule,
     GdSelectModule,
     GdInputModule,
-    NpTextareaModule,
+    GdTextareaModule,
     GdSelectEnumModule
   ],
   exports: [
@@ -42,7 +42,7 @@ import { GdSelectEnumModule } from './gd-select-enum/gd-select-enum.module';
     gdformModule,
     GdSelectModule,
     GdInputModule,
-    NpTextareaModule,
+    GdTextareaModule,
     GdDatepickerComponent,
     GdSelectEnumModule
   ]

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NpNavComponent } from './np-nav.component';
+import { GdNavComponent } from './gd-nav.component';
 
-describe('NpNavComponent', () => {
-  let component: NpNavComponent;
-  let fixture: ComponentFixture<NpNavComponent>;
+describe('GdNavComponent', () => {
+  let component: GdNavComponent;
+  let fixture: ComponentFixture<GdNavComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NpNavComponent ]
+      declarations: [ GdNavComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NpNavComponent);
+    fixture = TestBed.createComponent(GdNavComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

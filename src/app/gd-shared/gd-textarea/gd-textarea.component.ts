@@ -4,14 +4,14 @@ import { Component, Input } from '@angular/core';
 import { GdI18nService } from '@gdesp/gd-i18n/gd-i18n.service';
 
 @Component({
-  selector: 'np-textarea',
-  templateUrl: './np-textarea.component.html',
-  styleUrls: ['./np-textarea.component.css'],
+  selector: 'gd-textarea',
+  templateUrl: './gd-textarea.component.html',
+  styleUrls: ['./gd-textarea.component.css'],
   viewProviders: [
     {provide: ControlContainer, useExisting: FormGroupDirective, useValue: null}
   ]
 })
-export class NpTextareaComponent {
+export class GdTextareaComponent {
 @Input() public form: FormGroup;
 @Input() public controlName: string;
 @Input() public colunas: number;

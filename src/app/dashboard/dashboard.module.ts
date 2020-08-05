@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { ElectronService } from 'ngx-electron';
 import { DashboardRoutingModule } from './dashboard-routing.module';
-import { NpWidgetGridModule } from '@gdesp/np-widget-grid/np-widget-grid.module';
-import { NpWidgetModule } from '@gdesp/np-widget/np-widget.module';
+import { GdWidgetGridModule } from '@gdesp/gd-widget-grid/gd-widget-grid.module';
+import { GdWidgetModule } from '@gdesp/gd-widget/gd-widget.module';
 import { DashboardComponent } from './dashboard.component';
 import { ChartsModule } from 'ng2-charts';
 import { ChartDespesasTotalComponent } from '../chart/chart-despesas-total/chart-despesas-total.component';
@@ -19,8 +19,8 @@ import { GdEventService } from '@gdesp/gd-event/gd-event.service';
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    NpWidgetGridModule,
-    NpWidgetModule,
+    GdWidgetGridModule,
+    GdWidgetModule,
     GdFormModule,
     ChartsModule,
     GdAlertModule
