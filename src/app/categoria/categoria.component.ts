@@ -36,7 +36,7 @@ public form: FormGroup;
 
   addCategoria(): void {
     const categoria = new CategoriaEntity();
-    categoria.name = this.form.controls.name.value;
+    categoria.key = this.form.controls.name.value;
     this.service.addCategoria(categoria).subscribe((items) => (this.model = items));
   }
 

@@ -26,21 +26,23 @@ export class GdValidacaoEspecificacoes {
 
     public minlength(minLength) {
         return (control) => {
-            if (this.isPresent(this.required(control)))
+            if (this.isPresent(this.required(control))){
                 return null;
-            var v = control.value;
-            return v.length < minLength ?
+            }
+            let valueControl = control.value;
+            valueControl = +valueControl;
+            return valueControl < minLength ?
                 {
-                    'minlength': {
-                        'requiredLength': minLength,
-                        'actualLength': v.length
+                    minlength: {
+                        requiredLength: minLength,
+                        actualLength: valueControl
                     },
-                    'errorMessage': "ERRO_GENERICO_CAMPO_LIMITE_MINIMO_CARACTERES",
-                    'parseVals': ["fieldName", minLength]
+                    errorMessage: 'ERRO_GENERICO_CAMPO_LIMITE_MINIMO_CARACTERES',
+                    parseVals: ['fieldName', minLength]
                 } :
                 null;
         };
-    };
+    }
 
     public maxlength(maxLength) {
         return (control) => {

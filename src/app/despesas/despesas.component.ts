@@ -1,3 +1,4 @@
+import { IKeyValue } from './../gd-shared/gd-interface/key-value.interface';
 import { Router } from '@angular/router';
 import { FormGroup } from '@angular/forms';
 import { Component, OnInit, AfterViewInit } from '@angular/core';
@@ -27,8 +28,8 @@ export class DespesasComponent implements OnInit, AfterViewInit {
   public model: DespesasModel;
   private validacaoService: GdValidacaoService;
   public listaCategorias: CategoriaEntity[];
-  public listaMeses: any[] = [];
-  public listaAnos: any[] = [{ ano: '2018', id: 2018 }, { ano: '2019', id: 2019 }, { ano: '2020', id: 2020 }];
+  public listaMeses: IKeyValue[];
+  public listaAnos: IKeyValue[];
   public retornoModel: any[] = [];
   public erro: any = false;
   public mesSelecionado: number;
@@ -63,7 +64,12 @@ export class DespesasComponent implements OnInit, AfterViewInit {
 
     setTimeout(() => {
       this.getMeses();
+      this.getAnos();
       this.getDespesas();
+      this.setValidations();
+
+      this.model.mes = +(new Date().getUTCMonth());
+      this.model.ano = new Date().getUTCFullYear();
     }, 0);
   }
 
@@ -85,15 +91,21 @@ export class DespesasComponent implements OnInit, AfterViewInit {
     this.listaMeses = [];
 
     this.serviceMeses.getMeses().subscribe((meses) => {
-      this.listaMeses = meses;
-      this.model.mes = +(new Date().getUTCMonth() - 1);
-
-      this.setValidations();
+      this.listaMeses.push(meses);
     });
+  }
+
+  private getAnos() {
+    this.listaAnos = [];
+
+    this.listaAnos = [{key: (new Date().getUTCFullYear() - 1).toString(), value: (new Date().getUTCFullYear() - 1)},
+                      {key: (new Date().getUTCFullYear()).toString(), value: (new Date().getUTCFullYear())}];
   }
 
   private getDespesas(): void {
     this.form.reset();
+    this.model = new DespesasModel();
+
     this.retornoModel = [];
 
     let model = [];
@@ -141,14 +153,14 @@ export class DespesasComponent implements OnInit, AfterViewInit {
         this.retornoModel.forEach(x => {
           const categoria = [];
           x.idCategoria.forEach(c => {
-            const name = this.listaCategorias.find(item => +item.id === +c).name;
+            const name = this.listaCategorias.find(item => +item.value === +c).key;
             categoria.push(name);
           });
 
           categoria.sort();
 
           x['categorias'] = categoria.join(', ');
-          x['mesNome'] = this.listaMeses.find(m => +m.id === +x.mes).nome;
+          x['mesNome'] = this.listaMeses.find(m => +m.value === +x.mes).key;
           x['valorFormatado'] = `R$ ${Number(x.valor).toFixed(2).replace('.', ',')}`;
         });
       });

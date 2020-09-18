@@ -4,8 +4,8 @@ import {Entity, PrimaryGeneratedColumn, Column} from 'typeorm';
 export class CategoriaEntity {
 
     @PrimaryGeneratedColumn()
-    id: number;
+    value: number;
 
     @Column()
-    name: string;
+    key: string;
 }

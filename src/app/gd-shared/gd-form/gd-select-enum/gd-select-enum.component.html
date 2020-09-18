@@ -1,9 +1,9 @@
-﻿<div *ngIf="visible" [formGroup]="parentForm" [ngClass]="opcaoInvalida ? 'has-error form-group' : 'form-group'" >
+﻿<div *ngIf="visible" [formGroup]="form" [ngClass]="opcaoInvalida ? 'has-error form-group' : 'form-group'" >
     <label class="control-label">{{title}}</label>
     <select class="form-control"
-            formControlName="{{controlName}}" (change)="mudancaValorSelect()">
-        <option *ngIf="primeiraOpcaoVazia"></option>
-        <option [value]="e.Value" *ngFor="let e of lista">{{e.nome}}</option>
+            formControlName="{{controlName}}">
+        <option *ngIf="placeholder" disabled selected value="">{{placeholder}}</option>
+        <option [value]="e.value" *ngFor="let e of lista">{{e.key}}</option>
     </select>
     <small *ngIf="opcaoInvalida" class="help-block error-container">{{ mensagemErro }}</small>
 </div>

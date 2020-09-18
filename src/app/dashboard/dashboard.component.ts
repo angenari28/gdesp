@@ -12,7 +12,7 @@ import { GdI18nService } from './../gd-shared/gd-i18n/gd-i18n.service';
 import { GdMesesService } from '@gdesp/gd-meses/gd-meses.service';
 
 @Component({
-  selector: 'np-dashboard',
+  selector: 'gd-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
@@ -61,7 +61,7 @@ export class DashboardComponent implements OnInit {
 
     categoriasDoAno.forEach((categoria, index) => {
       const data = [];
-      const label = this.categoriasLista.find(x => x.id === +categoria).name;
+      const label = this.categoriasLista.find(x => x.value === +categoria).key;
       this.mesesIndice.forEach(mes => {
         const valorMes = despesas.filter(x => +x.mes === +mes && +x.idCategoria === +categoria);
 
@@ -118,9 +118,9 @@ export class DashboardComponent implements OnInit {
 
   getMeses() {
     this.serviceMeses.getMeses().subscribe(res => {
-      res.forEach(x => {
-        this.mesesIndice.push(x.id);
-        this.chartLabels.push(x.nome);
+      [res].forEach(x => {
+        this.mesesIndice.push(x.value);
+        this.chartLabels.push(x.key);
       });
     });
   }

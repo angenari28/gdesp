@@ -14,30 +14,26 @@
                   <div class="dt-toolbar no-padding">
                     <form [formGroup]="form">
                       <gd-row>
-                        <div *ngIf="this.listaAnos.length > 0">
+                        <div *ngIf="this.listaAnos">
                           <gd-column size="1">
-                            <gd-select [items]="this.listaAnos" [(selected)]="model.ano"
-                              label="{{'DESPESAS_ANO' | gdi18n}}" placeholder="Selecionar o ano" bindValue="id"
-                              bindLabel="ano">
-                            </gd-select>
+                            <gd-select-enum [lista]="this.listaAnos" controlName="ano" title="{{'DESPESAS_ANO' | gdi18n}}" [form]="form"></gd-select-enum>
                           </gd-column>
                         </div>
-                        <div *ngIf="this.listaMeses.length > 0">
+                        <div *ngIf="this.listaMeses">
                           <gd-column size="1">
-                            <gd-select [items]="this.listaMeses" [(selected)]="model.mes"
-                              label="{{'DESPESAS_MES' | gdi18n}}" placeholder="Selecionar o mes" bindValue="id"
-                              bindLabel="nome">
-                            </gd-select>
+                            <gd-select-enum [lista]="this.listaMeses" controlName="mes" title="{{'DESPESAS_MES' | gdi18n}}" [form]="form"></gd-select-enum>
                           </gd-column>
                         </div>
                         <gd-column size="1">
-                          <gd-select [items]="this.listaCategorias" [(selected)]="model.idCategoria"
-                            label="{{'DESPESAS_CATEGORIAS' | gdi18n}}" placeholder="Selecionar a categoria"
+                          <!-- <gd-select [items]="this.listaCategorias" [(selected)]="model.idCategoria"
+                            label="{{'DESPESAS_CATEGORIAS' | gdi18n}}" placeholder=""
                             bindValue="id" bindLabel="name">
-                          </gd-select>
-                        </gd-column>
+                          </gd-select> -->
+                            <gd-select-enum [lista]="this.listaCategorias" controlName="idCategoria" title="{{'DESPESAS_CATEGORIAS' | gdi18n}}"
+                            [form]="form" placeholder="Selecionar a categoria"></gd-select-enum>
+                          </gd-column>
                         <gd-column size="1">
-                          <gd-input label="{{'DESPESAS_VALOR' | gdi18n}}" placeholder="" [form]='form'
+                          <gd-input label="{{'DESPESAS_VALOR' | gdi18n}}" placeholder="0,00" [form]='form'
                             controlname="valor">
                           </gd-input>
                         </gd-column>

@@ -1,3 +1,4 @@
+import { IKeyValue } from './../../gd-shared/gd-interface/key-value.interface';
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 
 import { Subscription } from 'rxjs';
@@ -22,7 +23,7 @@ export class ChartDespesasTotalComponent implements OnInit, OnDestroy {
   @Input() public anoDespesa: number;
 
   private inscricaoEvento: Subscription;
-  private categorias: any[] = [];
+  private categorias: IKeyValue[] = [];
   private despesasDoAno: any = [];
   public chartPrincipalReady: any = false;
   public chartLabels: Label[] = [];
@@ -89,7 +90,7 @@ export class ChartDespesasTotalComponent implements OnInit, OnDestroy {
     const categoria = [];
 
     categoriasId.forEach(c => {
-      const nomeCategoria = this.categorias.find(x => x.id === c).name;
+      const nomeCategoria = this.categorias.find(x => x.value === c).key;
       let valorTotal = 0;
       this.despesasDoAno.forEach(dados => {
         valorTotal += c === +dados.idCategoria ? dados.valor : 0;

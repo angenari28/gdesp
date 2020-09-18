@@ -28,7 +28,7 @@ const createWindow = async () => {
     synchronize: true,
     logging: true,
     logger: 'simple-console',
-    database: isDevMode ? `${__dirname}/../src/assets/data/database.sqlite` : `${__dirname}/../../../database.sqlite`,
+    database: isDevMode ? `${__dirname}/../src/assets/data/database.sqlite` : `./database.sqlite`,
     entities: [ CategoriaEntity, DespesaEntity ],
   });
   new DataBaseContext(connection);

@@ -68,7 +68,7 @@ export class DespesasModalComponent implements OnInit {
       this.retornoModel = res;
 
       this.retornoModel.forEach(dados => {
-        dados['categoriaNome'] = this.listaCategorias.find(x => +x.id === +dados.idCategoria).name;
+        dados['categoriaNome'] = this.listaCategorias.find(x => +x.value === +dados.idCategoria).key;
         dados['valorFormatado'] = `R$ ${Number(dados.valor).toFixed(2).replace('.', ',')}`;
       });
 
