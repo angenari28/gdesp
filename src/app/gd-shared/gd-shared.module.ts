@@ -15,7 +15,7 @@ import { GdFormModule } from './gd-form/gd-form.module';
 import { GdJsonModule } from './gd-json/gd-json.module';
 import { GdLoaderModule } from './gd-loader/gd-loader.module';
 import { GdMenuContextoModule } from '@gdesp/gd-menu-contexto/gd-menu-contexto.module';
-
+import { NgxMaskModule } from 'ngx-mask';
 @NgModule({
 
   imports: [GdFrameModule,
@@ -32,7 +32,8 @@ import { GdMenuContextoModule } from '@gdesp/gd-menu-contexto/gd-menu-contexto.m
     GdFormModule,
     GdLoaderModule,
     GdMenuContextoModule,
-    GdProfileModule
+    GdProfileModule,
+    NgxMaskModule.forRoot()
   ],
   exports: [GdFrameModule,
     GdContentModule,

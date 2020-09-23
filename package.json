@@ -15,7 +15,8 @@
     "asar-pack": "asar pack ./out/gdesp-win32-x64/resources/app ./out/gdesp-win32-x64/resources/app.asar",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
-    "clean": "del-cli dist"
+    "clean": "del-cli dist",
+    "postinstall": "ngcc"
   },
   "config": {
     "forge": {
@@ -71,10 +72,11 @@
     "ng2-charts": "^2.3.2",
     "ngx-bootstrap": "^5.6.1",
     "ngx-electron": "^2.2.0",
+    "ngx-mask": "^10.0.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^6.5.5",
     "sqlite3": "^4.2.0",
-    "tslib": "^1.13.0",
+    "tslib": "^2.0.1",
     "typeorm": "^0.2.24",
     "zone.js": "^0.10.3"
   },

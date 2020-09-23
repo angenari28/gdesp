@@ -1,4 +1,5 @@
 import { Component, Input, HostBinding, AfterViewInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'gd-button',
@@ -14,6 +15,7 @@ export class GdButtonComponent implements AfterViewInit {
   @Input() public disabled: boolean;
   @Input() public align: string;
   @Input() public callback: Function;
+  @Input() public form: FormGroup;
   @HostBinding('style.justify-content')
   textalign: string = 'flex-start';
 
@@ -21,6 +23,7 @@ export class GdButtonComponent implements AfterViewInit {
     if (!this.callback) {
       this.callback = () => { };
     }
+
     setTimeout(() => {
       switch (this.align) {
         case 'left':

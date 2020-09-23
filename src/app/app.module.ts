@@ -18,7 +18,7 @@ import { GdContextService } from './gd-shared/gd-context/gd-context.service';
     BrowserModule,
     AppRoutingModule,
     GdSharedModule,
-    RouterModule
+    RouterModule,
   ],
   providers: [
     NpEndpointService,

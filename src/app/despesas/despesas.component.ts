@@ -1,7 +1,7 @@
 import { IKeyValue } from './../gd-shared/gd-interface/key-value.interface';
 import { Router } from '@angular/router';
 import { FormGroup } from '@angular/forms';
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ElementRef } from '@angular/core';
 
 import { DespesaEntity } from './../../../database/src/domain/entity/despesa.entity';
 import { CategoriaEntity } from './../../../database/src/domain/entity/categoria.entity';
@@ -39,6 +39,7 @@ export class DespesasComponent implements OnInit, AfterViewInit {
 
   constructor(
     private service: DespesasService,
+    public element: ElementRef,
     public i18n: GdI18nService,
     public serviceMeses: GdMesesService,
     public router: Router,
@@ -78,7 +79,8 @@ export class DespesasComponent implements OnInit, AfterViewInit {
 
     this.form = this.validacaoService.getFormGroup(this.model);
 
-    this.validacaoService.setValidators('valor', { required: true, minlength: 1 });
+    this.validacaoService.setValidators('valor', { required: true, isvaluemorethen: 1 });
+    this.validacaoService.setValidators('idCategoria', {required: true});
   }
 
   private getCategoria(): void {
@@ -173,7 +175,7 @@ export class DespesasComponent implements OnInit, AfterViewInit {
     });
   }
 
-  public addDespesa(): void {
+  public submit = (): void => {
 
     if (this.form.invalid) {
       return;

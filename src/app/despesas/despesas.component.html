@@ -34,14 +34,14 @@
                           </gd-column>
                         <gd-column size="1">
                           <gd-input label="{{'DESPESAS_VALOR' | gdi18n}}" placeholder="0,00" [form]='form'
-                            controlname="valor">
+                            controlname="valor" mascara="separator.2" >
                           </gd-input>
                         </gd-column>
                       </gd-row>
                       <gd-row divider="true">
                         <gd-column size="1">
                           <gd-button title="{{'GENERICO_ADICIONAR' | gdi18n:'base'}}" type="submit"
-                            (click)="addDespesa()" color="black" [align]="'right'"></gd-button>
+                            color="black" [align]="'right'" [callback]="submit"></gd-button>
                         </gd-column>
                       </gd-row>
                     </form>

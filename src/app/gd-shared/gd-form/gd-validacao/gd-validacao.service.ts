@@ -236,9 +236,9 @@ export class GdValidacaoService {
 
     let namespace = fieldName.split("[]").map(_ => _.replace(/^\./, ""));
 
-    if (namespace.length == 1) {
+    if (namespace.length === 1) {
       if (this.form.controls[namespace[0]]) {
-        //Adiciona/altera os itens da validação atual com as novas validações
+        // Adiciona/altera os itens da validação atual com as novas validações
         for (let key in newValidators) {
           this.form.controls[namespace[0]].validators[key] = newValidators[key];
           //if (key == "required") {
