@@ -39,7 +39,7 @@ dl {
     }
 
       :host .nav__list .nav__list__item .nav__list__item--active {
-        background: #000000;
+        background: #bba909;
       }
 
       :host .nav__list .nav__list__item .nav__list__item__caption {
@@ -93,7 +93,7 @@ dl {
   transition: background 0.8s;
   animation-delay: 0s;
   -webkit-animation-delay: 0s;
-  background: #000000 radial-gradient(circle, transparent 1%, #000000 1%) center/15000%;
+  background: #FF5733 radial-gradient(circle, transparent 1%, #FF5733 1%) center/15000%;
 }
 
 .nav__list__item.ripple:hover {
@@ -101,7 +101,7 @@ dl {
 }
 
 .nav__list__item.ripple.active {
-  border-left: 5px solid #1abc9c;
+  border-left: 5px solid #bba909;
 }
 
 .nav__list__item.expandable.ripple.active {
@@ -128,7 +128,7 @@ dl {
 }
 
 .nav__list__item__subitem.ripple.active {
-  border-left: 5px solid #1abc9c;
+  border-left: 5px solid #bba909;
 }
 
 .nav__list__item__subitem.ripple:active {

@@ -7,7 +7,7 @@
         <gd-column size="1">
           <div *ngFor="let ano of anosDespesas">
             <gd-button title="{{ano}}" type="button" color="outline-primary"
-              (click)="filtrarPorAno($event.target.value)" [align]="'right'"></gd-button>
+              (click)="filtrarPorAno($event.target.value)" [align]="'right'" pillow="{{true}}" active="{{+ano === +anoSelecionado ? true : false}}"></gd-button>
           </div>
         </gd-column>
       </gd-row>
