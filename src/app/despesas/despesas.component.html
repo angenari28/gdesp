@@ -25,23 +25,19 @@
                           </gd-column>
                         </div>
                         <gd-column size="1">
-                          <!-- <gd-select [items]="this.listaCategorias" [(selected)]="model.idCategoria"
-                            label="{{'DESPESAS_CATEGORIAS' | gdi18n}}" placeholder=""
-                            bindValue="id" bindLabel="name">
-                          </gd-select> -->
-                            <gd-select-enum [lista]="this.listaCategorias" controlName="idCategoria" title="{{'DESPESAS_CATEGORIAS' | gdi18n}}"
+                            <gd-select-enum disabled="!contentReady" [lista]="this.listaCategorias" controlName="idCategoria" title="{{'DESPESAS_CATEGORIAS' | gdi18n}}"
                             [form]="form" placeholder="Selecionar a categoria"></gd-select-enum>
                           </gd-column>
                         <gd-column size="1">
                           <gd-input label="{{'DESPESAS_VALOR' | gdi18n}}" placeholder="0,00" [form]='form'
-                            controlname="valor" mascara="separator.2" >
+                            controlname="valor" mascara="separator.2" disabled="!contentReady">
                           </gd-input>
                         </gd-column>
                       </gd-row>
                       <gd-row divider="true">
                         <gd-column size="1">
                           <gd-button title="{{'GENERICO_ADICIONAR' | gdi18n:'base'}}" type="submit"
-                            color="black" [align]="'right'" [callback]="submit"></gd-button>
+                            color="black" [align]="'right'" [callback]="submit" disabled="!contentReady"></gd-button>
                         </gd-column>
                       </gd-row>
                     </form>
@@ -58,7 +54,10 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <ng-container *ngIf="retornoModel">
+                      <td colspan="3">
+                        <gd-loader-tabela *ngIf="!contentReady"></gd-loader-tabela>
+                      </td>
+                      <ng-container *ngIf="retornoModel && contentReady">
                         <ng-container *ngFor="let despesa of retornoModel">
                           <tr>
                             <!-- <td>

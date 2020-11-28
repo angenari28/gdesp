@@ -10,6 +10,7 @@ import { GdAlertModule } from '@gdesp/gd-alert/gd-alert.module';
 import { GdWidgetModule } from '@gdesp/gd-widget/gd-widget.module';
 import { GdWidgetGridModule } from '@gdesp/gd-widget-grid/gd-widget-grid.module';
 import { GdMesesService } from '@gdesp/gd-meses/gd-meses.service';
+import { GdLoaderModule } from './../gd-shared/gd-loader/gd-loader.module';
 
 import { DespesasRoutingModule } from './despesas.module.routing';
 import { DespesasComponent } from './despesas.component';
@@ -29,6 +30,7 @@ import { ModalModule, BsModalRef } from 'ngx-bootstrap/modal';
     Gdi18nModule,
     GdFormModule,
     GdMenuContextoModule,
+    GdLoaderModule,
     DespesasRoutingModule,
     ModalModule.forRoot()
   ],

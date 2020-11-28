@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class GdNavButtonComponent implements OnInit {
 
   @Input() public callback: Function;
-  public active: boolean = true;
+  public active = true;
 
 
   ngOnInit() {

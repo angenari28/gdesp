@@ -36,6 +36,7 @@ export class DespesasComponent implements OnInit, AfterViewInit {
   public idSelecionado: any;
   public modal: DespesasModalComponent;
   public bsModalRef: BsModalRef;
+  public contentReady = false;
 
   constructor(
     private service: DespesasService,
@@ -57,6 +58,10 @@ export class DespesasComponent implements OnInit, AfterViewInit {
     this.setValidations();
 
     this.inicializarDados();
+
+    setTimeout(() => {
+      this.contentReady = true;
+    }, 5000);
   }
 
   public inicializarDados() {

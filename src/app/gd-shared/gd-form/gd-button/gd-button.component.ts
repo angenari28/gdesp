@@ -1,4 +1,3 @@
-import { element } from 'protractor';
 import { Component, Input, HostBinding, AfterViewInit, ElementRef } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 

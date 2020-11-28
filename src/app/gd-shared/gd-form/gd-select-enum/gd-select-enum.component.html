@@ -1,7 +1,7 @@
 ﻿<div *ngIf="visible" [formGroup]="form" [ngClass]="opcaoInvalida ? 'has-error form-group' : 'form-group'" >
     <label class="control-label">{{title}}</label>
     <select class="form-control"
-            formControlName="{{controlName}}">
+            formControlName="{{controlName}}" disable="disabled">
         <option *ngIf="placeholder" disabled selected value="">{{placeholder}}</option>
         <option [value]="e.value" *ngFor="let e of lista">{{e.key}}</option>
     </select>

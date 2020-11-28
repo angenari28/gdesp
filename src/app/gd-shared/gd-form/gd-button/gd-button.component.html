@@ -1,1 +1,1 @@
-<input buttonSubmit="form" type="{{type}}" value="{{title}}" ngClass="{{class}}" (click)="callback(); active=true; tornarAtivo();" [disabled]="disabled">
+<input buttonSubmit="form" type="{{type}}" value="{{title}}" ngClass="{{class}}" (click)="callback(); active=true; tornarAtivo();" [disabled]="disabled === true ? 'true' : null">
