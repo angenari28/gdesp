@@ -30,7 +30,7 @@
                           </gd-column>
                         <gd-column size="1">
                           <gd-input label="{{'DESPESAS_VALOR' | gdi18n}}" placeholder="0,00" [form]='form'
-                            controlname="valor" mascara="separator.2" disabled="!contentReady">
+                            controlname="valor" mascara="separator.2" disabled="!contentReady" disabled="!contentReady">
                           </gd-input>
                         </gd-column>
                       </gd-row>
@@ -67,7 +67,7 @@
                             <td><strong style="cursor: pointer;" (click)="
                               abrirModal([{ano: despesa.ano, mes: despesa.mes, mesNome: despesa.mesNome, categorias: despesa.categorias}])">
                               <u>{{despesa?.mesNome}}/{{despesa?.ano}}</u></strong></td>
-                            <td>{{despesa?.valorFormatado}}</td>
+                            <td>{{ despesa?.valorFormatado | gdCurrency}}</td>
                             <td>{{despesa?.categorias}}</td>
                           </tr>
                         </ng-container>

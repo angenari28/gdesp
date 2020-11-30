@@ -61,7 +61,7 @@ export class DespesasComponent implements OnInit, AfterViewInit {
 
     setTimeout(() => {
       this.contentReady = true;
-    }, 5000);
+    }, 1000);
   }
 
   public inicializarDados() {
@@ -168,7 +168,7 @@ export class DespesasComponent implements OnInit, AfterViewInit {
 
           x['categorias'] = categoria.join(', ');
           x['mesNome'] = this.listaMeses.find(m => +m.value === +x.mes).key;
-          x['valorFormatado'] = `R$ ${Number(x.valor).toFixed(2).replace('.', ',')}`;
+          x['valorFormatado'] = +(x.valor);
         });
       });
     });

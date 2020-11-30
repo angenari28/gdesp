@@ -2,7 +2,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { GdI18nService } from '../gd-i18n.service';
-import { DataParser } from '../parsers/data.parser';
 
 @Pipe({
   name: 'gddate',
@@ -19,6 +18,6 @@ export class GdDatePipe implements PipeTransform {
       return '';
     }
 
-    return DataParser.parse(phrase, this.service.getConfig(), true).toView;
+    return ''
   }
 }

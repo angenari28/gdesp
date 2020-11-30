@@ -9,11 +9,11 @@
     }
   },
   "include": [
-    "src/**/*.ts"
+    "src/**/*.ts",
+    "assets/api/gd-i18n/json-typings.d.ts"
   ],
   "exclude": [
     "src/test.ts",
-    "src/**/*.spec.ts",
-    "assets/api/gd-i18n/json-typings.d.ts"
+    "src/**/*.spec.ts"
   ]
 }

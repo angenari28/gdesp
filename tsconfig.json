@@ -26,8 +26,7 @@
     "types": ["node"]
   },
   "exclude": [
-    "test.ts",
-    "assets/api/gd-i18n/json-typings.d.ts"
-  ]
+    "test.ts"
+    ]
 }
 

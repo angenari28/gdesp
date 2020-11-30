@@ -1,5 +1,5 @@
 <div [formGroup]="form" class="form-group">
   <label class="control-label">{{label}}</label>
-  <input *ngIf="controlname" [mask]="mascara" [thousandSeparator]="'.'" type="{{tipo}}" value="" placeholder="{{placeholder}}" [formControlName]="controlname" gdi18n="{{parse}}" [attr.min]="min" [attr.max]="max" [attr.maxlength]="maxlength" [gdDisable]="disabled" />
-  <input class="form-control" *ngIf="!controlname" type="{{tipo}}" value="" placeholder="{{placeholder}}" gdi18n="{{parse}}" [attr.maxlength]="maxlength" [gdDisable]="disabled" />
+  <input *ngIf="controlname" type="{{tipo}}" value="" placeholder="{{placeholder}}" [formControlName]="controlname" gdi18n="{{parse}}" [attr.min]="min" [attr.max]="max" [attr.maxlength]="maxlength" />
+  <input class="form-control" *ngIf="!controlname" type="{{tipo}}" value="" placeholder="{{placeholder}}" gdi18n="{{parse}}" [attr.maxlength]="maxlength" />
 </div>
