@@ -64,6 +64,7 @@
     "@ng-select/ng-select": "^3.7.3",
     "bootstrap": "^4.5.3",
     "chart.js": "^2.9.4",
+    "check-updates": "0.0.1",
     "electron": "^9.3.5",
     "electron-compile": "^6.4.4",
     "electron-devtools-installer": "^2.2.4",

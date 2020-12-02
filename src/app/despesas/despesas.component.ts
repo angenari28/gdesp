@@ -91,7 +91,9 @@ export class DespesasComponent implements OnInit, AfterViewInit {
   private getCategoria(): void {
     this.listaCategorias = [];
 
-    this.service.getCategoria().subscribe((items) => (this.listaCategorias = items));
+    this.service.getCategoria().subscribe((items) =>
+    (this.listaCategorias = items),
+    error => this.tratarErro(error));
   }
 
   private getMeses(): void {
@@ -227,13 +229,23 @@ export class DespesasComponent implements OnInit, AfterViewInit {
   }
 
   private tratarErro(err) {
-    this.event.broadcast('mensagem-alerta-adicionar', {
+    // this.event.broadcast('mensagem-alerta-adicionar', {
+    //   contexto: 'mensagem-despesas',
+    //   icone: 'glyphicon glyphicon-remove-sign',
+    //   mensagem:  err, //[this.i18n.getTranslation('ERRO_FALHACOMUNICACAOBASE')],
+    //   severidade: 'danger',
+    //   titulo: this.i18n.getTranslation('ERRO_TITULOERRO')
+    // });
+    this.contexto.addContext('mensagem-despesas',
+    {
       contexto: 'mensagem-despesas',
-      icone: 'glyphicon glyphicon-remove-sign',
-      mensagem: [err.status === 400 || err.status === 500 ? err.text() : this.i18n.getTranslation('ERRO_FALHACOMUNICACAOBASE')],
+      icone: 'glyphicon glyphicon-ok',
+      mensagem: [err],
       severidade: 'danger',
-      titulo: this.i18n.getTranslation('ERRO_TITULOERRO')
+      titulo: this.i18n.getTranslation('SUCESSO_TITULOSUCESSO')
     });
+
+    this.carregarContexto();
 
     this.erro = true;
   }

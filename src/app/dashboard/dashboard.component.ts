@@ -1,3 +1,4 @@
+import { GdI18nCurrencyPipe } from './../gd-shared/gd-i18n/pipes/gd-i18n.currency.pipe';
 import { Component, OnInit } from '@angular/core';
 
 import { Subject } from 'rxjs';
@@ -29,14 +30,36 @@ export class DashboardComponent implements OnInit {
     private serviceDespesas: DespesasService,
     public serviceMeses: GdMesesService,
     private contexto: GdContextService,
-    private event: GdEventService) { }
+    private event: GdEventService,
+    private currencyPipe: GdI18nCurrencyPipe) { }
 
   public chartLabels: Label[] = [];
   public chartType: ChartType = 'bar';
   public chartOptions: any = {
     legend:
-      { display: true, labels: { fontColor: 'black' } }
+      { display: true, labels: { fontColor: 'black' }},
+      tooltips: {
+        callbacks: {
+          label: data => {
+          return this.currencyPipe.transform(data.value);
+         }
+        }
+      },
+     scales: {
+       xAxes: [{
+         ticks: {}
+       }],
+       yAxes : [{
+         ticks: {
+           beginAtZero: true,
+           userCallback: value => {
+             return this.currencyPipe.transform(value);
+           }
+         }
+       }]
+     }
   };
+
   public lineChartColors: Color[] = [{
     backgroundColor: ['#737495', '#E8B71A', '#354458', '#5BB12F', '#DD5F32']
   }];
@@ -65,7 +88,7 @@ export class DashboardComponent implements OnInit {
       this.mesesIndice.forEach(mes => {
         const valorMes = despesas.filter(x => +x.mes === +mes && +x.idCategoria === +categoria);
 
-        const saida: string = valorMes.length > 0 ? Number(valorMes[0].valor).toFixed(2) : '0';
+        const saida: string = valorMes.length > 0 ?  valorMes[0].valor : '0';
 
         data.push(saida);
 

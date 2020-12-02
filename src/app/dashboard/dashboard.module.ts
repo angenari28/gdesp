@@ -14,6 +14,7 @@ import { DespesasService } from './../despesas/despesas.service';
 import { GdFormModule } from '@gdesp/gd-form/gd-form.module';
 import { GdEventService } from '@gdesp/gd-event/gd-event.service';
 
+import {GdI18nCurrencyPipe } from '../gd-shared/gd-i18n/pipes/gd-i18n.currency.pipe';
 @NgModule({
   declarations: [DashboardComponent, ChartDespesasTotalComponent],
   imports: [
@@ -25,6 +26,6 @@ import { GdEventService } from '@gdesp/gd-event/gd-event.service';
     ChartsModule,
     GdAlertModule
   ],
-  providers: [DespesasService, ElectronService, GdContextService, GdEventService]
+  providers: [DespesasService, ElectronService, GdContextService, GdEventService, GdI18nCurrencyPipe]
 })
 export class DashboardModule { }
