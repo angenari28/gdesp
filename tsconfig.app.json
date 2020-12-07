@@ -14,7 +14,6 @@
   "exclude": [
     "src/test.ts",
     "src/**/*.spec.ts",
-    "assets/api/gd-i18n/json-typings.d.ts",
-    "src/enviroments/enviroment.prod.ts"
+    "./src/assets/api/gd-i18n/json-typings.d.ts"
   ]
 }

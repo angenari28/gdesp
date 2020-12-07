@@ -1,3 +1,4 @@
+import { Subject } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 
 import { GdI18nService } from '@gdesp/gd-i18n/gd-i18n.service';
@@ -20,6 +21,7 @@ export class DespesasModalComponent implements OnInit {
   public listaCategorias: any = [];
   public listaMeses: any = [];
   private erro: any = false;
+  public modalFechada: Subject<boolean>;
 
   public acao: GdMenuContextoInterface[] = [
     {
@@ -35,6 +37,7 @@ export class DespesasModalComponent implements OnInit {
     private i18n: GdI18nService) { }
 
   ngOnInit(): void {
+    this.modalFechada = new Subject();
     this.inicializarDados();
   }
 
@@ -82,7 +85,11 @@ export class DespesasModalComponent implements OnInit {
     const entity = this.retornoModel.filter(x => x.id === id);
     this.service
       .deleteDespesa(entity[0])
-      .subscribe((items) => (this.retornoModel = items));
+      .subscribe((items) => {
+        this.retornoModel = items;
+      }, error => {
+        this.tratarErro(error);
+      });
 
     this.msgSucesso(this.i18n.getTranslation('SUCESSO_EXCLUSAO'));
     this.inicializarDados();
@@ -90,18 +97,18 @@ export class DespesasModalComponent implements OnInit {
 
   carregarContexto() {
     setTimeout(() => {
-      const msg = this.contexto.getContext('mensagem-despesas');
+      const msg = this.contexto.getContext('mensagem-despesas-modal');
       if (msg) {
         this.event.broadcast('mensagem-alerta-adicionar', msg);
-        this.contexto.removeContext('mensagem-despesas');
+        this.contexto.removeContext('mensagem-despesas-modal');
       }
     }, 0);
   }
 
   public msgSucesso(msg: any) {
-    this.contexto.addContext('mensagem-despesas',
+    this.contexto.addContext('mensagem-despesas-modal',
       {
-        contexto: 'mensagem-despesas',
+        contexto: 'mensagem-despesas-modal',
         icone: 'glyphicon glyphicon-ok',
         mensagem: [msg],
         severidade: 'success',
@@ -111,18 +118,22 @@ export class DespesasModalComponent implements OnInit {
   }
 
   private tratarErro(err) {
-    this.event.broadcast('mensagem-alerta-adicionar', {
-      contexto: 'mensagem-despesas',
-      icone: 'glyphicon glyphicon-remove-sign',
-      mensagem: [err.status === 400 || err.status === 500 ? err.text() : this.i18n.getTranslation('ERRO_FALHACOMUNICACAOBASE')],
-      severidade: 'danger',
-      titulo: this.i18n.getTranslation('ERRO_TITULOERRO')
-    });
+
+    this.contexto.addContext('mensagem-despesas-modal',
+      {
+        contexto: 'mensagem-despesas-modal',
+        icone: 'glyphicon glyphicon-remove-sign',
+        mensagem: [err],
+        severidade: 'danger',
+        titulo: this.i18n.getTranslation('ERRO_TITULOERRO')
+      });
+    this.carregarContexto();
 
     this.erro = true;
   }
 
   public fechar() {
+    this.modalFechada.next(true);
     this.bsmodalRef.hide();
   }
 }

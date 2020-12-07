@@ -26,8 +26,13 @@
     },
     "types": ["node"]
   },
+
+  "files": [
+    "./src/assets/api/gd-i18n/json-typings.d.ts",
+  ],
   "exclude": [
-    "test.ts"
+    "test.ts",
+    "./src/assets/api/gd-i18n/json-typings.d.ts"
     ]
 }
 

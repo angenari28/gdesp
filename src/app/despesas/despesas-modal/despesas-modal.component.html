@@ -9,7 +9,7 @@
       </div>
       <div class="modal-body">
         <div class="section">
-          <gd-alert contexto="mensagem-despesas"></gd-alert>
+          <gd-alert contexto="mensagem-despesas-modal"></gd-alert>
           <div class="report-adjust">
             <div style="overflow-x: auto; overflow-y: hidden">
             </div>
@@ -31,7 +31,7 @@
                         <ng-container *ngFor="let despesa of retornoModel" >
                           <tr>
                             <td>
-                              <gd-menu-contexto [acao]="acao" [itemArray]="" [disabled]="false">
+                              <gd-menu-contexto [acao]="acao" [itemArray]="despesa.id" [disabled]="false">
                               </gd-menu-contexto>
                             </td>
                             <td>{{despesa.categoriaNome}}</td>

@@ -14,7 +14,7 @@
                   <div class="dt-toolbar no-padding">
                       <gd-row>
                         <gd-column size="1">
-                          <gd-input label="{{'CATEGORIA_NOME' | gdi18n}}" placeholder="" [form]='form' controlname="name">
+                          <gd-input label="{{'CATEGORIA_NOME' | gdi18n}}" placeholder="" [form]='form' controlname="nome">
                           </gd-input>
                        </gd-column>
                       <gd-column>
@@ -29,8 +29,11 @@
                       </tr>
                     </thead>
                       <tbody>
-                        <ng-container *ngIf="model && model.length > 0">
-                          <ng-container *ngFor="let categoria of model">
+                        <td colspan="1">
+                          <gd-loader-tabela *ngIf="!contentReady"></gd-loader-tabela>
+                        </td>
+                        <ng-container *ngIf="categorias && categorias.length > 0 && contentReady">
+                          <ng-container *ngFor="let categoria of categorias">
                             <tr>
                               <td>{{categoria?.key }}</td>
                             </tr>

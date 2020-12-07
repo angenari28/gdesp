@@ -17,9 +17,9 @@ export class GdValidacaoEspecificacoes {
 
         return this.isBlank(control.value) || (this.isString(control.value) && control.value.trim() === '') || control.value === false ?
             {
-                'required': true,
-                'errorMessage': 'ERRO_GENERICO_CAMPO_OBRIGATORIO_NAO_PREENCHIDO',
-                'parseVals': ["fieldName"]
+                required: true,
+                errorMessage: 'ERRO_GENERICO_CAMPO_OBRIGATORIO_NAO_PREENCHIDO',
+                parseVals: ['fieldName']
             } :
             null;
     }
@@ -46,9 +46,11 @@ export class GdValidacaoEspecificacoes {
 
     public maxlength(maxLength) {
         return (control) => {
-            if (this.isPresent(this.required(control)))
+            if (this.isPresent(this.required(control))) {
                 return null;
-            var v = control.value;
+            }
+
+            let v = control.value;
             return v.length > maxLength ?
                 {
                     'maxlength': {

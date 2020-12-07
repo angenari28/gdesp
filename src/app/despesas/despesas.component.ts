@@ -3,6 +3,9 @@ import { Router } from '@angular/router';
 import { FormGroup } from '@angular/forms';
 import { Component, OnInit, AfterViewInit, ElementRef } from '@angular/core';
 
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+
+
 import { DespesaEntity } from './../../../database/src/domain/entity/despesa.entity';
 import { CategoriaEntity } from './../../../database/src/domain/entity/categoria.entity';
 
@@ -10,13 +13,11 @@ import { GdMesesService } from '@gdesp/gd-meses/gd-meses.service';
 import { GdI18nService } from '@gdesp/gd-i18n/gd-i18n.service';
 import { DespesasService } from './despesas.service';
 import { DespesasModalComponent } from './despesas-modal/despesas-modal.component';
-
 import { DespesasModel } from './despesas.component.model';
 import { GdValidacaoService } from '@gdesp/gd-form/gd-validacao/gd-validacao.service';
 import { GdValidacaoEspecificacoes } from '@gdesp/gd-form/gd-validacao/gd-validacao.especificacoes';
 import { GdContextService } from '@gdesp/gd-context/gd-context.service';
 import { GdEventService } from '@gdesp/gd-event/gd-event.service';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
   templateUrl: './despesas.component.html',
@@ -47,7 +48,6 @@ export class DespesasComponent implements OnInit, AfterViewInit {
     private contexto: GdContextService,
     private event: GdEventService,
     private modalService: BsModalService) {
-    this.setValidations();
   }
 
   ngOnInit(): void {
@@ -59,9 +59,7 @@ export class DespesasComponent implements OnInit, AfterViewInit {
 
     this.inicializarDados();
 
-    setTimeout(() => {
-      this.contentReady = true;
-    }, 1000);
+    this.contentReady = true;
   }
 
   public inicializarDados() {
@@ -204,6 +202,11 @@ export class DespesasComponent implements OnInit, AfterViewInit {
     const initialState = [{ data: dados }];
 
     this.bsModalRef = this.modalService.show(DespesasModalComponent, { initialState });
+    this.bsModalRef.content.modalFechada.subscribe( res => {
+      if(res) {
+        this.inicializarDados();
+      }
+    });
   }
 
   carregarContexto() {
@@ -229,20 +232,13 @@ export class DespesasComponent implements OnInit, AfterViewInit {
   }
 
   private tratarErro(err) {
-    // this.event.broadcast('mensagem-alerta-adicionar', {
-    //   contexto: 'mensagem-despesas',
-    //   icone: 'glyphicon glyphicon-remove-sign',
-    //   mensagem:  err, //[this.i18n.getTranslation('ERRO_FALHACOMUNICACAOBASE')],
-    //   severidade: 'danger',
-    //   titulo: this.i18n.getTranslation('ERRO_TITULOERRO')
-    // });
     this.contexto.addContext('mensagem-despesas',
     {
       contexto: 'mensagem-despesas',
-      icone: 'glyphicon glyphicon-ok',
+      icone: 'glyphicon glyphicon-remove-sign',
       mensagem: [err],
       severidade: 'danger',
-      titulo: this.i18n.getTranslation('SUCESSO_TITULOSUCESSO')
+      titulo: this.i18n.getTranslation('ERRO_TITULOERRO')
     });
 
     this.carregarContexto();

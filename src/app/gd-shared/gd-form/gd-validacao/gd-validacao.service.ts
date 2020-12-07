@@ -234,19 +234,19 @@ export class GdValidacaoService {
       this.parseModel(model);
     }
 
-    let namespace = fieldName.split("[]").map(_ => _.replace(/^\./, ""));
+    let namespace = fieldName.split('[]').map(_ => _.replace(/^\./, ''));
 
     if (namespace.length === 1) {
       if (this.form.controls[namespace[0]]) {
         // Adiciona/altera os itens da validação atual com as novas validações
-        for (let key in newValidators) {
+        for (const key in newValidators) {
           this.form.controls[namespace[0]].validators[key] = newValidators[key];
           //if (key == "required") {
           //    this.event.broadcast("decorar-campo-required", namespace[0]);
           //}
         }
 
-        let fn: ValidatorFn[] = [];
+        const fn: ValidatorFn[] = [];
 
         //Destroi a lista de validações atual do FormGroup e substitui pela nova com as validações atualizadas
         for (let key in this.form.controls[namespace[0]].validators) {
@@ -340,6 +340,6 @@ export class GdValidacaoService {
     this.formGroup = new FormGroup({});
 
     this.parseModel(this.model);
-    this.event.broadcast("validation-clear");
+    this.event.broadcast('validation-clear');
   }
 }

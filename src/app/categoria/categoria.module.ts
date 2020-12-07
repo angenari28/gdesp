@@ -2,6 +2,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { ElectronService } from 'ngx-electron';
+
 import { GdMenuContextoModule } from '@gdesp/gd-menu-contexto/gd-menu-contexto.module';
 import { GdFormModule } from '@gdesp/gd-form/gd-form.module';
 import { Gdi18nModule } from '@gdesp/gd-i18n/gd-i18n.module';
@@ -11,7 +13,7 @@ import { GdWidgetGridModule } from '@gdesp/gd-widget-grid/gd-widget-grid.module'
 import { CategoriaComponent } from './categoria.component';
 import { CategoriaService } from './categoria.service';
 import { CategoriaRoutingModule } from './categoria.module.routing';
-import { ElectronService } from 'ngx-electron';
+import { GdLoaderModule } from './../gd-shared/gd-loader/gd-loader.module';
 
 
 @NgModule({
@@ -25,6 +27,7 @@ import { ElectronService } from 'ngx-electron';
     Gdi18nModule,
     GdFormModule,
     GdMenuContextoModule,
+    GdLoaderModule,
     CategoriaRoutingModule
   ],
   providers: [CategoriaService, ElectronService]
