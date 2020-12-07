@@ -1,25 +1,11 @@
 <div class="section">
   <h1>Indicativos</h1>
   <gd-widget-grid columns="6">
-    <gd-widget title="{{ anosDespesas.length > 0 ? 'Valor despesas mensais' : ''}}" colspan="4" rowspan="{{anosDespesas.length > 0 ? 2 : 1}}">
-      <gd-alert *ngIf="anosDespesas.length <= 0" contexto="mensagem-dashboard" [closeWindow]="false"></gd-alert>
-      <gd-row>
-        <gd-column size="1">
-          <div *ngFor="let ano of anosDespesas">
-            <gd-button title="{{ano}}" type="button" color="outline-primary"
-              (click)="filtrarPorAno($event.target.value)" [align]="'right'" pillow="{{true}}" active="{{+ano === +anoSelecionado ? true : false}}"></gd-button>
-          </div>
-        </gd-column>
-      </gd-row>
-      <div *ngIf="chartReady" style="display: block" class="chart-wrapper">
-        <canvas baseChart [datasets]="chartData" [labels]="chartLabels" [options]="chartOptions"
-          [chartType]="chartType">
-        </canvas>
-      </div>
+    <gd-widget title="Valor despesas mensais" colspan="4" rowspan="2">
+      <gd-chart-despesas-mes></gd-chart-despesas-mes>
     </gd-widget>
-    <gd-widget *ngIf="chartReady" title="Valor total por categoria" colspan="2" rowspan="1">
-      <gd-chart-despesas-total [chartReady]="chartReady" [anoDespesa]="anoSelecionado"
-        [evento]="eventSubject.asObservable()">
+    <gd-widget title="Valor total por categoria" colspan="2" rowspan="1">
+      <gd-chart-despesas-total>
       </gd-chart-despesas-total>
     </gd-widget>
   </gd-widget-grid>

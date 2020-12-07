@@ -52,7 +52,7 @@ export class GdNavComponent implements OnInit {
     if (!this.menu) {
       this.service.loadMenu().subscribe((data: any) => {
         this.menu = data.items.sort((a, b) => {
-          return (a.Nome > b.Nome) ? 1 : ((b.Nome > a.Nome) ? -1 : 0);
+          return a.Ordem;
         });
 
         this.menu.forEach(_ => {

@@ -35,12 +35,14 @@ const createWindow = async () => {
 
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    fullscreen: true,
+    autoHideMenuBar: true,
     frame: isDevMode == null || isDevMode === undefined ? false : true,
     webPreferences: {
       nodeIntegration: true
     }
   });
+  mainWindow.setMenu(null);
+  mainWindow.maximize();
 
   // and load the index.html of the app.
   mainWindow.loadURL(`file://${__dirname}/../dist/index.html`);

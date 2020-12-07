@@ -1,3 +1,4 @@
+import { ChartService } from './../chart.service';
 import { IKeyValue } from './../../gd-shared/gd-interface/key-value.interface';
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 
@@ -16,11 +17,12 @@ import { Label, Color } from 'ng2-charts';
 })
 export class ChartDespesasTotalComponent implements OnInit, OnDestroy {
 
-  constructor(public service: DespesasService) { }
+  constructor(public service: DespesasService,
+              private chartService: ChartService) { }
 
-  @Input() public chartReady: any = false;
-  @Input() public evento: Observable<any>;
-  @Input() public anoDespesa: number;
+  public chartReady: any = false;
+  // public evento: Observable<any>;
+  public anoDespesa: number;
 
   private inscricaoEvento: Subscription;
   private categorias: IKeyValue[] = [];
@@ -48,9 +50,10 @@ export class ChartDespesasTotalComponent implements OnInit, OnDestroy {
   public chartData: ChartDataSets[] = [];
 
   ngOnInit(): void {
-    this.inscricaoEvento = this.evento.subscribe(res => {
+    this.inscricaoEvento = this.chartService.anoDespesasChanged$.subscribe(res => {
       this.anoDespesa = res;
       this.getDespesasAno();
+      this.chartReady = true;
     });
 
     this.getDespesasAno();

@@ -15,6 +15,7 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "outDir": "./dist/",
+    "rootDir": "./src",
     "sourceMap": true,
     "target": "es5",
     "typeRoots": [

@@ -1,3 +1,5 @@
+import { ChartService } from './../chart/chart.service';
+import { ChartDespesasMesComponent } from './../chart/chart-despesas-mes/chart-despesas-mes.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -16,7 +18,7 @@ import { GdEventService } from '@gdesp/gd-event/gd-event.service';
 
 import {GdI18nCurrencyPipe } from '../gd-shared/gd-i18n/pipes/gd-i18n.currency.pipe';
 @NgModule({
-  declarations: [DashboardComponent, ChartDespesasTotalComponent],
+  declarations: [DashboardComponent, ChartDespesasTotalComponent, ChartDespesasMesComponent],
   imports: [
     CommonModule,
     DashboardRoutingModule,
@@ -26,6 +28,6 @@ import {GdI18nCurrencyPipe } from '../gd-shared/gd-i18n/pipes/gd-i18n.currency.p
     ChartsModule,
     GdAlertModule
   ],
-  providers: [DespesasService, ElectronService, GdContextService, GdEventService, GdI18nCurrencyPipe]
+  providers: [DespesasService, ElectronService, GdContextService, GdEventService, GdI18nCurrencyPipe, ChartService]
 })
 export class DashboardModule { }
