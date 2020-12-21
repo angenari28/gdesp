@@ -9,6 +9,7 @@
    },
    "dependencies": {
       "electron": "^9.0.5",
+      "ini": "^2.0.0",
       "reflect-metadata": "^0.1.13",
       "sqlite3": "^5.0.0",
       "typeorm": "^0.2.24"
