@@ -1,14 +1,15 @@
-import { ChartService } from './../chart.service';
-import { IKeyValue } from './../../gd-shared/gd-interface/key-value.interface';
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 
 import { Subscription } from 'rxjs';
-import { Observable, Subject } from 'rxjs';
+import { Label, Color } from 'ng2-charts';
+import { ChartType, ChartDataSets } from 'chart.js';
+
+import { ChartService } from './../chart.service';
+import { IKeyValue } from './../../gd-shared/gd-interface/key-value.interface';
+
 
 import { DespesasService } from '../../despesas/despesas.service';
 
-import { ChartType, ChartDataSets } from 'chart.js';
-import { Label, Color } from 'ng2-charts';
 
 @Component({
   selector: 'gd-chart-despesas-total',
@@ -21,7 +22,6 @@ export class ChartDespesasTotalComponent implements OnInit, OnDestroy {
               private chartService: ChartService) { }
 
   public chartReady: any = false;
-  // public evento: Observable<any>;
   public anoDespesa: number;
 
   private inscricaoEvento: Subscription;

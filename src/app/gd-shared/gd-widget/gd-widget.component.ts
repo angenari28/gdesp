@@ -47,9 +47,9 @@ export class GdWidgetComponent implements AfterViewInit, OnInit, DoCheck {
 
   constructor(public elementRef: ElementRef,
     // public loader: NpLoaderService,
-    public endpointService: NpEndpointService) {
-    this.colspan = this.colspan ? this.colspan : 1;
-    this.rowspan = this.rowspan ? this.rowspan : 1;
+              public endpointService: NpEndpointService) {
+      this.colspan = this.colspan ? this.colspan : 1;
+      this.rowspan = this.rowspan ? this.rowspan : 1;
   }
 
   ngOnInit() {
