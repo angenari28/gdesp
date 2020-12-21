@@ -28,19 +28,21 @@ const createWindow = async () => {
     synchronize: true,
     logging: true,
     logger: 'simple-console',
-    database: isDevMode ? `${__dirname}/../src/assets/data/database.sqlite` : `${__dirname}/../../../database.sqlite`,
+    database: isDevMode ? `${__dirname}/../src/assets/data/database.sqlite` : `./database.sqlite`,
     entities: [ CategoriaEntity, DespesaEntity ],
   });
   new DataBaseContext(connection);
 
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    fullscreen: true,
+    autoHideMenuBar: true,
     frame: isDevMode == null || isDevMode === undefined ? false : true,
     webPreferences: {
       nodeIntegration: true
     }
   });
+  mainWindow.setMenu(null);
+  mainWindow.maximize();
 
   // and load the index.html of the app.
   mainWindow.loadURL(`file://${__dirname}/../dist/index.html`);

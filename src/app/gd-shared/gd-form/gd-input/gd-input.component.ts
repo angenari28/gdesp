@@ -22,6 +22,8 @@ export class GdInputComponent implements OnInit {
   @Input() public parse: string;
   @Input() public min: number;
   @Input() public max: number;
+  @Input() public mascara: 'gdCurrency' | 'date';
+  @Input() public disabled: boolean;
 
   constructor(public gdi18n: GdI18nService) {
   }

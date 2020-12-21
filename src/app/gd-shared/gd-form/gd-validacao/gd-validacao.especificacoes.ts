@@ -17,36 +17,40 @@ export class GdValidacaoEspecificacoes {
 
         return this.isBlank(control.value) || (this.isString(control.value) && control.value.trim() === '') || control.value === false ?
             {
-                'required': true,
-                'errorMessage': 'ERRO_GENERICO_CAMPO_OBRIGATORIO_NAO_PREENCHIDO',
-                'parseVals': ["fieldName"]
+                required: true,
+                errorMessage: 'ERRO_GENERICO_CAMPO_OBRIGATORIO_NAO_PREENCHIDO',
+                parseVals: ['fieldName']
             } :
             null;
     }
 
     public minlength(minLength) {
         return (control) => {
-            if (this.isPresent(this.required(control)))
+            if (this.isPresent(this.required(control))){
                 return null;
-            var v = control.value;
-            return v.length < minLength ?
+            }
+            let valueControl = control.value;
+            valueControl = +valueControl;
+            return valueControl < minLength ?
                 {
-                    'minlength': {
-                        'requiredLength': minLength,
-                        'actualLength': v.length
+                    minlength: {
+                        requiredLength: minLength,
+                        actualLength: valueControl
                     },
-                    'errorMessage': "ERRO_GENERICO_CAMPO_LIMITE_MINIMO_CARACTERES",
-                    'parseVals': ["fieldName", minLength]
+                    errorMessage: 'ERRO_GENERICO_CAMPO_LIMITE_MINIMO_CARACTERES',
+                    parseVals: ['fieldName', minLength]
                 } :
                 null;
         };
-    };
+    }
 
     public maxlength(maxLength) {
         return (control) => {
-            if (this.isPresent(this.required(control)))
+            if (this.isPresent(this.required(control))) {
                 return null;
-            var v = control.value;
+            }
+
+            let v = control.value;
             return v.length > maxLength ?
                 {
                     'maxlength': {
@@ -473,7 +477,7 @@ export class GdValidacaoEspecificacoes {
             } else {
                 return null;
             }
-        }
+        };
     }
 
     public cnpj(control: any) {
@@ -545,12 +549,12 @@ export class GdValidacaoEspecificacoes {
                     },
                     'errorMessage': "ERRO_GENERICO_TAMANHO_ARQUIVO_INVALIDO_DINAMICO",
                     'parseVals': ["fieldName", abrevSize, sulfix]
-                }
+                };
             }
 
             return ret;
         };
-    };
+    }
 
     public choice(param) {
         return (control: FormArray) => {
@@ -594,7 +598,7 @@ export class GdValidacaoEspecificacoes {
 
             return ret;
         };
-    };
+    }
 
     public isPresent(obj) {
         return obj !== undefined && obj !== null;
@@ -678,4 +682,24 @@ export class GdValidacaoEspecificacoes {
 
         return true;
     }
+
+    public isvaluemorethen(minValue) {
+      return (control) => {
+        if (this.isPresent(this.required(control))) {
+            return null;
+        }
+        let valueControl = control.value;
+        valueControl = +valueControl;
+        return valueControl < minValue ?
+            {
+              minlength: {
+                requiredLength: minValue,
+                actualLength: valueControl
+              },
+                errorMessage: 'ERRO_GENERICO_CAMPO_VALOR_MINIMO_MONETARIO',
+                parseVals: ['fieldName', `${Number(minValue).toFixed(2).replace('.', ',')}`]
+            } :
+            null;
+    };
+  }
 }

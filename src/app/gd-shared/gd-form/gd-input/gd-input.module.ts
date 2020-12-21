@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { GdValidacaoModule } from './../gd-validacao/gd-validacao.module';
 import { Gdi18nModule } from '@gdesp/gd-i18n/gd-i18n.module';
 import { GdInputComponent } from './gd-input.component';
 
@@ -13,7 +14,8 @@ import { GdInputComponent } from './gd-input.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    Gdi18nModule
+    Gdi18nModule,
+    GdValidacaoModule
   ],
   exports: [
     GdInputComponent

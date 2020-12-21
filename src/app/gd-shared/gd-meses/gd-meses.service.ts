@@ -1,3 +1,4 @@
+import { IKeyValue } from './../gd-interface/key-value.interface';
 import { Observable, of } from 'rxjs';
 import { GdI18nService } from '@gdesp/gd-i18n/gd-i18n.service';
 import { Injectable, OnInit } from '@angular/core';
@@ -10,20 +11,20 @@ export class GdMesesService {
   constructor(private i18n: GdI18nService) {
   }
 
-  getMeses(): Observable<any> {
-    return of([
-      {nome: this.i18n.getTranslation('MES-JANEIRO'), id: 0},
-      {nome: this.i18n.getTranslation('MES-FEVEREIRO'), id: 1},
-      {nome: this.i18n.getTranslation('MES-MARCO'), id: 2},
-      {nome: this.i18n.getTranslation('MES-ABRIL'), id: 3},
-      {nome: this.i18n.getTranslation('MES-MAIO'), id: 4},
-      {nome: this.i18n.getTranslation('MES-JUNHO'), id: 5},
-      {nome: this.i18n.getTranslation('MES-JULHO'), id: 6},
-      {nome: this.i18n.getTranslation('MES-AGOSTO'), id: 7},
-      {nome: this.i18n.getTranslation('MES-SETEMBRO'), id: 8},
-      {nome: this.i18n.getTranslation('MES-OUTUBRO'), id: 9},
-      {nome: this.i18n.getTranslation('MES-NOVEMBRO'), id: 10},
-      {nome: this.i18n.getTranslation('MES-DEZEMBRO'), id: 11}
-    ]);
+  getMeses(): Observable<IKeyValue> {
+    return of(
+      {key: this.i18n.getTranslation('MES-JANEIRO'), value: 0},
+      {key: this.i18n.getTranslation('MES-FEVEREIRO'), value: 1},
+      {key: this.i18n.getTranslation('MES-MARCO'), value: 2},
+      {key: this.i18n.getTranslation('MES-ABRIL'), value: 3},
+      {key: this.i18n.getTranslation('MES-MAIO'), value: 4},
+      {key: this.i18n.getTranslation('MES-JUNHO'), value: 5},
+      {key: this.i18n.getTranslation('MES-JULHO'), value: 6},
+      {key: this.i18n.getTranslation('MES-AGOSTO'), value: 7},
+      {key: this.i18n.getTranslation('MES-SETEMBRO'), value: 8},
+      {key: this.i18n.getTranslation('MES-OUTUBRO'), value: 9},
+      {key: this.i18n.getTranslation('MES-NOVEMBRO'), value: 10},
+      {key: this.i18n.getTranslation('MES-DEZEMBRO'), value: 11}
+    );
   }
 }

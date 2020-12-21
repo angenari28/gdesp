@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'np-app',
+  selector: 'gd-app',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.less']
 })
 
-export class NpAppComponent {
+export class GdAppComponent {
   public navExpanded: boolean;
   public init: any = false;
   constructor(public router: Router) { }
@@ -26,11 +26,10 @@ export class NpAppComponent {
 }
 
 @Component({
-  selector: 'np-layout',
+  selector: 'gd-layout',
   template: '<router-outlet></router-outlet>'
 })
 
-export class NpLayoutComponent {
+export class GdLayoutComponent {
   title = 'site';
-
 }

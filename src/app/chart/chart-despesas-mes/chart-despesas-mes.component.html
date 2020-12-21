@@ -1,0 +1,14 @@
+<gd-alert *ngIf="anosDespesas.length <= 0" contexto="mensagem-dashboard" [closeWindow]="false"></gd-alert>
+      <gd-row>
+        <gd-column size="1">
+          <div *ngFor="let ano of anosDespesas">
+            <gd-button title="{{ano}}" type="button" color="outline-primary"
+              (click)="filtrarPorAno($event.target.value)" [align]="'right'" pillow="{{true}}" active="{{+ano === +anoSelecionado ? true : false}}"></gd-button>
+          </div>
+        </gd-column>
+      </gd-row>
+      <div *ngIf="chartReady" style="display: block" class="chart-wrapper">
+        <canvas baseChart [datasets]="chartData" [labels]="chartLabels" [options]="chartOptions"
+          [chartType]="chartType">
+        </canvas>
+      </div>

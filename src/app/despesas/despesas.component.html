@@ -1,51 +1,43 @@
 <div class="section">
   <h1>{{ 'TITULO_DESPESAS' | gdi18n }}</h1>
-  <np-widget-grid>
-    <np-widget title="{{ 'TITULO_DESPESAS_ADICIONAR' | gdi18n }}">
+  <gd-widget-grid>
+    <gd-widget title="{{ 'TITULO_DESPESAS_ADICIONAR' | gdi18n }}">
       <gd-alert contexto="mensagem-despesas"></gd-alert>
       <gd-row>
         <gd-column size='8'>
           <div class="report-adjust">
             <div style="overflow-x: auto; overflow-y: hidden">
             </div>
-            <fieldset>
+            <gd-fieldset titulo="">
               <div class="widget-body">
                 <div class="table-responsive">
                   <div class="dt-toolbar no-padding">
                     <form [formGroup]="form">
                       <gd-row>
-                        <div *ngIf="this.listaAnos.length > 0">
+                        <div *ngIf="this.listaAnos">
                           <gd-column size="1">
-                            <gd-select [items]="this.listaAnos" [(selected)]="model.ano"
-                              label="{{'DESPESAS_ANO' | gdi18n}}" placeholder="Selecionar o ano" bindValue="id"
-                              bindLabel="ano">
-                            </gd-select>
+                            <gd-select-enum [lista]="this.listaAnos" controlName="ano" title="{{'DESPESAS_ANO' | gdi18n}}" [form]="form"></gd-select-enum>
                           </gd-column>
                         </div>
-                        <div *ngIf="this.listaMeses.length > 0">
+                        <div *ngIf="this.listaMeses">
                           <gd-column size="1">
-                            <gd-select [items]="this.listaMeses" [(selected)]="model.mes"
-                              label="{{'DESPESAS_MES' | gdi18n}}" placeholder="Selecionar o mes" bindValue="id"
-                              bindLabel="nome">
-                            </gd-select>
+                            <gd-select-enum [lista]="this.listaMeses" controlName="mes" title="{{'DESPESAS_MES' | gdi18n}}" [form]="form"></gd-select-enum>
                           </gd-column>
                         </div>
                         <gd-column size="1">
-                          <gd-select [items]="this.listaCategorias" [(selected)]="model.idCategoria"
-                            label="{{'DESPESAS_CATEGORIAS' | gdi18n}}" placeholder="Selecionar a categoria"
-                            bindValue="id" bindLabel="name">
-                          </gd-select>
-                        </gd-column>
+                            <gd-select-enum disabled="!contentReady" [lista]="this.listaCategorias" controlName="idCategoria" title="{{'DESPESAS_CATEGORIAS' | gdi18n}}"
+                            [form]="form" placeholder="Selecionar a categoria"></gd-select-enum>
+                          </gd-column>
                         <gd-column size="1">
-                          <gd-input label="{{'DESPESAS_VALOR' | gdi18n}}" placeholder="" [form]='form'
-                            controlname="valor">
+                          <gd-input label="{{'DESPESAS_VALOR' | gdi18n}}" placeholder="0,00" [form]='form'
+                            controlname="valor" mascara="separator.2" disabled="!contentReady" disabled="!contentReady">
                           </gd-input>
                         </gd-column>
                       </gd-row>
                       <gd-row divider="true">
                         <gd-column size="1">
                           <gd-button title="{{'GENERICO_ADICIONAR' | gdi18n:'base'}}" type="submit"
-                            (click)="addDespesa()" color="black" [align]="'right'"></gd-button>
+                            color="black" [align]="'right'" [callback]="submit" disabled="!contentReady"></gd-button>
                         </gd-column>
                       </gd-row>
                     </form>
@@ -62,7 +54,10 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <ng-container *ngIf="retornoModel">
+                      <td colspan="3">
+                        <gd-loader-tabela *ngIf="!contentReady"></gd-loader-tabela>
+                      </td>
+                      <ng-container *ngIf="retornoModel && contentReady">
                         <ng-container *ngFor="let despesa of retornoModel">
                           <tr>
                             <!-- <td>
@@ -72,7 +67,7 @@
                             <td><strong style="cursor: pointer;" (click)="
                               abrirModal([{ano: despesa.ano, mes: despesa.mes, mesNome: despesa.mesNome, categorias: despesa.categorias}])">
                               <u>{{despesa?.mesNome}}/{{despesa?.ano}}</u></strong></td>
-                            <td>{{despesa?.valorFormatado}}</td>
+                            <td>{{ despesa?.valorFormatado | gdCurrency}}</td>
                             <td>{{despesa?.categorias}}</td>
                           </tr>
                         </ng-container>
@@ -81,10 +76,10 @@
                   </table>
                 </div>
               </div>
-            </fieldset>
+            </gd-fieldset>
           </div>
         </gd-column>
       </gd-row>
-    </np-widget>
-  </np-widget-grid>
+    </gd-widget>
+  </gd-widget-grid>
 </div>

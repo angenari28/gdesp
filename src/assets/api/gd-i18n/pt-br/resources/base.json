@@ -31,5 +31,8 @@
 "MES-SETEMBRO": "Setembro",
 "MES-OUTUBRO": "Outubro",
 "MES-NOVEMBRO": "Novembro",
-"MES-DEZEMBRO": "Dezembro"
+"MES-DEZEMBRO": "Dezembro",
+"ERRO_GENERICO_CAMPO_LIMITE_MINIMO_CARACTERES": "O campo '{0}' deve ter no mínimo {1} caracteres",
+"ERRO_GENERICO_CAMPO_VALOR_MINIMO_MONETARIO": "O campo '{0}' deve ter no mínimo R$ {1}",
+"ERRO_GENERICO_CAMPO_OBRIGATORIO_NAO_PREENCHIDO": "O campo '{0}' é obrigatório"
 }

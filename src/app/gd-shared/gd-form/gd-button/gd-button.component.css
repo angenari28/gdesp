@@ -30,20 +30,32 @@
     }
 
     :host input[type=button].outline-primary {
-      color: #1abc9c;
-      border: 1px solid #1abc9c;
+      color: #FF5733;
+      border: 1px solid #FF5733;
       background-color: #fff;
     }
 
-    :host input[type=button].outline-primary:hover, :host input[type=button].outline-primary:active {
+    :host input[type=button].outline-primary:hover {
       color: #fff;
-      border-color: #1abc9c;
-      background-color: #1abc9c;
+      border-color: #fff;
+      background-color: #FF5733;
     }
 
       :host input[type=button].black:disabled, :host input[type=submit].black:disabled {
         background-color: #757575;
       }
+
+   :host .pillow {
+     border-radius: 30px !important;
+     height: 80% !important;
+     font-size: 12px !important;
+   }
+
+   :host .outline-primary-active {
+    color: #fff !important;
+    border-color: #fff !important;
+    background-color: #FF5733 !important;
+  }
 
 @media only screen and (max-width: 600px) {
   :host {

@@ -3,10 +3,10 @@ import { RouterModule } from '@angular/router';
 
 import { GdFrameComponent } from './gd-frame.component';
 import { GdHeaderModule } from '../gd-header/gd-header.module';
-import { NpNavModule } from '../np-nav/np-nav.module';
+import { GdNavModule } from '../gd-nav/gd-nav.module';
 import { GdFooterModule } from '../gd-footer/gd-footer.module';
 import { GdContentModule } from '../gd-content/gd-content.module';
-import { NpNavButtonModule } from '../np-nav-button/np-nav-button.module';
+import { GdNavButtonModule } from '../gd-nav-button/gd-nav-button.module';
 
 @NgModule({
   declarations: [
@@ -18,10 +18,10 @@ import { NpNavButtonModule } from '../np-nav-button/np-nav-button.module';
   imports: [
     RouterModule,
     GdHeaderModule,
-    NpNavModule,
+    GdNavModule,
     GdFooterModule,
     GdContentModule,
-    NpNavButtonModule
+    GdNavButtonModule
   ],
   schemas: [
     NO_ERRORS_SCHEMA

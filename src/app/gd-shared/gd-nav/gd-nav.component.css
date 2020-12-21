@@ -1,0 +1,185 @@
+:host ol,
+ul,
+dl {
+  /* margin-top: 16px !important; */
+  /* margin-bottom: 1rem; */
+}
+
+:host li{
+  border-top: 1px solid #3e5871
+}
+
+:host {
+  background-color: #344258;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+
+  :host .nav {
+    flex: 1;
+    z-index: 3;
+  }
+
+  :host .nav__list {
+    list-style: none;
+    padding: 0;
+  }
+
+    :host .nav__list .nav__list__item, :host .nav__list .nav__list__item__subitem {
+      display: flex;
+      flex-flow: row nowrap;
+      align-content: center;
+      list-style: none;
+      padding: 10px 10px 10px 15px;
+      color: #FFFFFF;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+      :host .nav__list .nav__list__item .nav__list__item--active {
+        background: #bba909;
+      }
+
+      :host .nav__list .nav__list__item .nav__list__item__caption {
+        max-width: 150px;
+        word-wrap: break-word;
+        margin-left: 25px;
+      }
+
+    :host .nav__list .nav__list__item__sublist {
+      list-style: none;
+      background: #344258;
+      padding: 0;
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.5s;
+      animation-delay: 0s;
+      -webkit-animation-delay: 0s;
+    }
+
+      :host .nav__list .nav__list__item__sublist.expanded {
+        max-height: 500px;
+        transition: max-height 0.5s;
+        animation-delay: 0s;
+        -webkit-animation-delay: 0s;
+      }
+
+      :host .nav__list .nav__list__item__sublist .nav__list__item__subitem {
+        padding-left: 57px;
+      }
+
+    :host .nav__list .nav__list__item__carret {
+      flex: 1;
+      text-align: end;
+      align-self: center;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: flex-end;
+    }
+
+  :host .icon__container {
+    width: 20px;
+    height: 20px;
+  }
+
+.ripple {
+  border-left: 5px solid transparent;
+  background-position: center;
+}
+
+.nav__list__item.ripple:hover, .nav__list__item.ripple.active {
+  transition: background 0.8s;
+  animation-delay: 0s;
+  -webkit-animation-delay: 0s;
+  background: #FF5733 radial-gradient(circle, transparent 1%, #FF5733 1%) center/15000%;
+}
+
+.nav__list__item.ripple:hover {
+  border-left: 5px solid #dbe3e8;
+}
+
+.nav__list__item.ripple.active {
+  border-left: 5px solid #bba909;
+}
+
+.nav__list__item.expandable.ripple.active {
+  border-left: 5px solid transparent;
+}
+
+.nav__list__item.ripple:active {
+  background-color: #515151;
+  background-size: 100%;
+  transition: background 0s;
+  animation-delay: 0s;
+  -webkit-animation-delay: 0s;
+}
+
+.nav__list__item__subitem.ripple:hover, .nav__list__item__subitem.ripple.active {
+  transition: background 0.8s;
+  animation-delay: 0s;
+  -webkit-animation-delay: 0s;
+  background: #344258 radial-gradient(circle, transparent 1%, #344258 1%) center/15000%;
+}
+
+.nav__list__item__subitem.ripple:hover {
+  border-left: 5px solid #dbe3e8;
+}
+
+.nav__list__item__subitem.ripple.active {
+  border-left: 5px solid #bba909;
+}
+
+.nav__list__item__subitem.ripple:active {
+  background-color: #bfbfbf;
+  background-size: 100%;
+  transition: background 0s;
+  animation-delay: 0s;
+  -webkit-animation-delay: 0s;
+}
+
+
+.arrow-right {
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid #ffffff;
+  transform: rotate(0deg);
+  transition: transform 0.3s;
+  animation-delay: 0s;
+  -webkit-animation-delay: 0s;
+}
+
+  .arrow-right.down {
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid #ffffff;
+    transform: rotate(90deg);
+    transition: transform 0.3s;
+    animation-delay: 0s;
+    -webkit-animation-delay: 0s;
+  }
+
+.arrow-mark {
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid #DBE3E8;
+  right: -11px;
+  position: relative;
+}
+
+@media only screen and (max-width: 600px) {
+  :host .nav__list .nav__list__item, :host .nav__list .nav__list__item__subitem {
+    cursor: default;
+  }
+
+  .arrow-mark {
+    border: none;
+  }
+}

@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { NpLayoutComponent } from './app.component';
+import { GdLayoutComponent } from './app.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: NpLayoutComponent,
+    component: GdLayoutComponent,
     children: [
       {
         path: 'home',

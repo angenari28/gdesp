@@ -1,10 +1,12 @@
+import { ChartService } from './../chart/chart.service';
+import { ChartDespesasMesComponent } from './../chart/chart-despesas-mes/chart-despesas-mes.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ElectronService } from 'ngx-electron';
 import { DashboardRoutingModule } from './dashboard-routing.module';
-import { NpWidgetGridModule } from '@gdesp/np-widget-grid/np-widget-grid.module';
-import { NpWidgetModule } from '@gdesp/np-widget/np-widget.module';
+import { GdWidgetGridModule } from '@gdesp/gd-widget-grid/gd-widget-grid.module';
+import { GdWidgetModule } from '@gdesp/gd-widget/gd-widget.module';
 import { DashboardComponent } from './dashboard.component';
 import { ChartsModule } from 'ng2-charts';
 import { ChartDespesasTotalComponent } from '../chart/chart-despesas-total/chart-despesas-total.component';
@@ -14,17 +16,18 @@ import { DespesasService } from './../despesas/despesas.service';
 import { GdFormModule } from '@gdesp/gd-form/gd-form.module';
 import { GdEventService } from '@gdesp/gd-event/gd-event.service';
 
+import {GdI18nCurrencyPipe } from '../gd-shared/gd-i18n/pipes/gd-i18n.currency.pipe';
 @NgModule({
-  declarations: [DashboardComponent, ChartDespesasTotalComponent],
+  declarations: [DashboardComponent, ChartDespesasTotalComponent, ChartDespesasMesComponent],
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    NpWidgetGridModule,
-    NpWidgetModule,
+    GdWidgetGridModule,
+    GdWidgetModule,
     GdFormModule,
     ChartsModule,
     GdAlertModule
   ],
-  providers: [DespesasService, ElectronService, GdContextService, GdEventService]
+  providers: [DespesasService, ElectronService, GdContextService, GdEventService, GdI18nCurrencyPipe, ChartService]
 })
 export class DashboardModule { }

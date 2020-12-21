@@ -34,12 +34,12 @@ export class GdFormControl {
 
     this.event.on('validation-clear', () => {
       this.cleanControl(null);
-    })
+    });
 
     this.event.on('form-submitted', (event) => {
-      if (this.getOuterMostForm(this.element.nativeElement.closest('form')) != event.srcElement) {
-        return '';
-      }
+      // if (this.getOuterMostForm(this.element.nativeElement.closest('form')) != event.srcElement) {
+      //   return '';
+      // }
 
       if (GdFormControl.lastEvent != event.timeStamp) {
         GdFormControl.lastEvent = event.timeStamp;
@@ -75,14 +75,14 @@ export class GdFormControl {
         this.type = 'field';
         this.createMessage(node, this.control);
       }
-    })
+    });
 
     this.event.on('validation-trigger-focus', (event) => {
       if (this.element.nativeElement != event.srcElement.closest('.input-group').querySelector('input')) {
         return;
       }
       this.cleanControl(event);
-    })
+    });
   }
 
   getLabel() {
@@ -237,6 +237,23 @@ export class GdFormGroup {
   }
 
   @HostListener('submit', ['$event'])
+  onSubmit(event: Event) {
+    event.preventDefault();
+    this.event.broadcast('form-submitted', event);
+  }
+}
+
+@Directive({
+  selector: '[buttonSubmit]'
+})
+
+export class GdButtonSubmitDirective {
+
+  constructor(public event: GdEventService) {
+
+  }
+
+  @HostListener('click', ['$event'])
   onSubmit(event: Event) {
     event.preventDefault();
     this.event.broadcast('form-submitted', event);

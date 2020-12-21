@@ -1,3 +1,4 @@
+import { GdValidacaoModule } from './../gd-validacao/gd-validacao.module';
 import { GdButtonComponent } from './gd-button.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -12,7 +13,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     FormsModule,
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    GdValidacaoModule
   ],
   exports: [GdButtonComponent]
 })

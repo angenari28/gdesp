@@ -1,7 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { HoraParser } from '../parsers/hora.parser';
 import { GdI18nService } from '../gd-i18n.service';
 
 @Pipe({
@@ -19,7 +18,7 @@ export class GdTimePipe implements PipeTransform {
       return '';
     }
 
-    return HoraParser.parse(phrase, this.service.getConfig(), true).toView;
+    return '';
   }
 
 }

@@ -5,10 +5,10 @@
 </gd-frame>
 <gd-frame [nav-expanded]="navExpanded">
   <gd-header header [logo-click-callback]="logoClick" >
-    <np-nav-button menu-button [callback]="menuClick"></np-nav-button>
+    <gd-nav-button menu-button [callback]="menuClick"></gd-nav-button>
     <gd-profile tools ></gd-profile>
   </gd-header>
-  <np-nav nav></np-nav>
+  <gd-nav nav></gd-nav>
   <gd-content content>
     <router-outlet #outlet="outlet"></router-outlet>
   </gd-content>

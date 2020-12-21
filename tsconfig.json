@@ -1,7 +1,8 @@
 {
   "compileOnSave": false,
   "angularCompilerOptions": {
-    "preserveWhitespaces": false
+    "preserveWhitespaces": false,
+    "enableIvy": "true"
   },
   "compilerOptions": {
     "baseUrl": "src",
@@ -14,6 +15,7 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "outDir": "./dist/",
+    "rootDir": "./src",
     "sourceMap": true,
     "target": "es5",
     "typeRoots": [
@@ -25,8 +27,13 @@
     },
     "types": ["node"]
   },
+
+  "files": [
+    "./src/assets/api/gd-i18n/json-typings.d.ts",
+  ],
   "exclude": [
-    "test.ts"
-  ]
+    "test.ts",
+    "./src/assets/api/gd-i18n/json-typings.d.ts"
+    ]
 }
 

@@ -1,12 +1,15 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 
 import { Subscription } from 'rxjs';
-import { Observable, Subject } from 'rxjs';
+import { Label, Color } from 'ng2-charts';
+import { ChartType, ChartDataSets } from 'chart.js';
+
+import { ChartService } from './../chart.service';
+import { IKeyValue } from './../../gd-shared/gd-interface/key-value.interface';
+
 
 import { DespesasService } from '../../despesas/despesas.service';
 
-import { ChartType, ChartDataSets } from 'chart.js';
-import { Label, Color } from 'ng2-charts';
 
 @Component({
   selector: 'gd-chart-despesas-total',
@@ -15,14 +18,14 @@ import { Label, Color } from 'ng2-charts';
 })
 export class ChartDespesasTotalComponent implements OnInit, OnDestroy {
 
-  constructor(public service: DespesasService) { }
+  constructor(public service: DespesasService,
+              private chartService: ChartService) { }
 
-  @Input() public chartReady: any = false;
-  @Input() public evento: Observable<any>;
-  @Input() public anoDespesa: number;
+  public chartReady: any = false;
+  public anoDespesa: number;
 
   private inscricaoEvento: Subscription;
-  private categorias: any[] = [];
+  private categorias: IKeyValue[] = [];
   private despesasDoAno: any = [];
   public chartPrincipalReady: any = false;
   public chartLabels: Label[] = [];
@@ -47,9 +50,10 @@ export class ChartDespesasTotalComponent implements OnInit, OnDestroy {
   public chartData: ChartDataSets[] = [];
 
   ngOnInit(): void {
-    this.inscricaoEvento = this.evento.subscribe(res => {
+    this.inscricaoEvento = this.chartService.anoDespesasChanged$.subscribe(res => {
       this.anoDespesa = res;
       this.getDespesasAno();
+      this.chartReady = true;
     });
 
     this.getDespesasAno();
@@ -89,7 +93,7 @@ export class ChartDespesasTotalComponent implements OnInit, OnDestroy {
     const categoria = [];
 
     categoriasId.forEach(c => {
-      const nomeCategoria = this.categorias.find(x => x.id === c).name;
+      const nomeCategoria = this.categorias.find(x => x.value === c).key;
       let valorTotal = 0;
       this.despesasDoAno.forEach(dados => {
         valorTotal += c === +dados.idCategoria ? dados.valor : 0;

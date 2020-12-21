@@ -9,13 +9,11 @@
       </div>
       <div class="modal-body">
         <div class="section">
-          <h2>{{'Despesas de ' + titulo}}</h2>
-          <gd-alert contexto="mensagem-despesas"></gd-alert>
-
+          <gd-alert contexto="mensagem-despesas-modal"></gd-alert>
           <div class="report-adjust">
             <div style="overflow-x: auto; overflow-y: hidden">
             </div>
-            <fieldset>
+            <gd-fieldset titulo="{{'Despesas de ' + titulo}}">
               <div class="widget-body">
                 <div class="table-responsive">
                   <table class="table">
@@ -33,11 +31,11 @@
                         <ng-container *ngFor="let despesa of retornoModel" >
                           <tr>
                             <td>
-                              <gd-menu-contexto [acao]="acao" [itemArray]="" [disabled]="false">
+                              <gd-menu-contexto [acao]="acao" [itemArray]="despesa.id" [disabled]="false">
                               </gd-menu-contexto>
                             </td>
                             <td>{{despesa.categoriaNome}}</td>
-                            <td>{{despesa.valorFormatado}}</td>
+                            <td>{{despesa.valor | gdCurrency}}</td>
                           </tr>
                         </ng-container>
                       </ng-container>
@@ -45,7 +43,7 @@
                   </table>
                 </div>
               </div>
-            </fieldset>
+            </gd-fieldset>
           </div>
         </div>
       </div>

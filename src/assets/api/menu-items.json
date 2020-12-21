@@ -3,7 +3,8 @@
     {
       "Nome": "HOME",
       "Icone": "fa fa-chart-bar",
-      "Url": "/dashboard"
+      "Url": "/dashboard",
+      "Ordem": "1"
     },
     {
       "Nome": "DESPESAS",
@@ -17,7 +18,8 @@
           "Nome": ">  despesas",
           "Url": "/despesas"
         }
-      ]
+      ],
+      "Ordem": "2"
     }
   ]
 }

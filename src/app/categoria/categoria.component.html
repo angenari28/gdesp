@@ -1,20 +1,20 @@
 <div class="section">
   <h1>{{ 'TITULO_CATEGORIA' | gdi18n }}</h1>
-   <np-widget-grid>
-      <np-widget title="{{ 'TITULO_CATEGORIA_CONSULTAR_CRIAR' | gdi18n }}">
+   <gd-widget-grid>
+      <gd-widget title="{{ 'TITULO_CATEGORIA_CONSULTAR_CRIAR' | gdi18n }}">
       <gd-alert contexto="mensagem-categoria"></gd-alert>
        <gd-row>
         <gd-column size='8'>
           <div class="report-adjust">
         <div style="overflow-x: auto; overflow-y: hidden">
         </div>
-        <fieldset>
+        <gd-fieldset titulo="">
           <div class="widget-body">
                 <div class="table-responsive">
                   <div class="dt-toolbar no-padding">
                       <gd-row>
                         <gd-column size="1">
-                          <gd-input label="{{'CATEGORIA_NOME' | gdi18n}}" placeholder="" [form]='form' controlname="name">
+                          <gd-input label="{{'CATEGORIA_NOME' | gdi18n}}" placeholder="" [form]='form' controlname="nome">
                           </gd-input>
                        </gd-column>
                       <gd-column>
@@ -29,10 +29,13 @@
                       </tr>
                     </thead>
                       <tbody>
-                        <ng-container *ngIf="model && model.length > 0">
-                          <ng-container *ngFor="let categoria of model">
+                        <td colspan="1">
+                          <gd-loader-tabela *ngIf="!contentReady"></gd-loader-tabela>
+                        </td>
+                        <ng-container *ngIf="categorias && categorias.length > 0 && contentReady">
+                          <ng-container *ngFor="let categoria of categorias">
                             <tr>
-                              <td>{{categoria?.name }}</td>
+                              <td>{{categoria?.key }}</td>
                             </tr>
                           </ng-container>
                         </ng-container>
@@ -40,10 +43,10 @@
                   </table>
                 </div>
         </div>
-        </fieldset>
+        </gd-fieldset>
       </div>
       </gd-column>
       </gd-row>
-      </np-widget>
-  </np-widget-grid>
+      </gd-widget>
+  </gd-widget-grid>
   </div>

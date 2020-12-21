@@ -1,12 +1,15 @@
-﻿import { Component, Input, OnInit } from '@angular/core';
+﻿import { Component, Input, OnInit, EventEmitter } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+
+import { IKeyValue } from './../../gd-interface/key-value.interface';
 
 import { GdEventService } from '../../gd-event/gd-event.service';
 import { GdI18nService } from '../../gd-i18n/gd-i18n.service';
 
 @Component({
     selector: 'gd-select-enum',
-    templateUrl: './gd-select-enum.component.html'
+    templateUrl: './gd-select-enum.component.html',
+    styleUrls: ['./gd-select-enum.component.less']
 })
 export class GdSelectEnumComponent implements OnInit {
 
@@ -17,41 +20,24 @@ export class GdSelectEnumComponent implements OnInit {
     // @Output() recuperaIndiceEnum: EventEmitter<any> = new EventEmitter();
     @Input() title: string;
     @Input() controlName: string;
-    @Input() lista: any[];
+    @Input() lista: IKeyValue[];
     @Input() disabled: boolean;
     @Input() visible: boolean;
     @Input() contextoErro: string;
     @Input() parentForm: FormGroup;
     @Input() primeiraOpcaoVazia: boolean;
-    @Input() change: Function;
+    @Input() change = new EventEmitter();
+    @Input() form: FormGroup;
+    @Input() placeholder: string;
 
     constructor(public event: GdEventService,
                 public i18n: GdI18nService) {
 
         this.visible = true;
         this.disabled = false;
-        this.primeiraOpcaoVazia = false;
     }
 
     ngOnInit() {
 
-        this.event.on('form-submitted', (event: Event) => {
-            this.validate();
-        });
-    }
-
-    public mudancaValorSelect() {
-        if (this.change) {
-            this.change();
-        }
-    }
-
-    validate() {
-        this.opcaoInvalida = this.parentForm.controls[this.controlName].invalid;
-
-        if (this.opcaoInvalida) {
-            this.mensagemErro =
-            this.i18n.getTranslation(this.parentForm.controls[this.controlName].errors.errorMessage, 'base').replace('{0}', this.title);
-        }
     }
 }
