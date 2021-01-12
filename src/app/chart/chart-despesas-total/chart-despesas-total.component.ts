@@ -7,10 +7,8 @@ import { ChartType, ChartDataSets } from 'chart.js';
 import { ChartService } from './../chart.service';
 import { IKeyValue } from './../../gd-shared/gd-interface/key-value.interface';
 
-
 import { DespesasService } from '../../despesas/despesas.service';
-
-
+import { GdI18nCurrencyPipe } from '../../gd-shared/gd-i18n/pipes/gd-i18n.currency.pipe';
 @Component({
   selector: 'gd-chart-despesas-total',
   templateUrl: './chart-despesas-total.component.html',
@@ -19,7 +17,8 @@ import { DespesasService } from '../../despesas/despesas.service';
 export class ChartDespesasTotalComponent implements OnInit, OnDestroy {
 
   constructor(public service: DespesasService,
-              private chartService: ChartService) { }
+              private chartService: ChartService,
+              private currencyPipe: GdI18nCurrencyPipe) { }
 
   public chartReady: any = false;
   public anoDespesa: number;
@@ -31,8 +30,19 @@ export class ChartDespesasTotalComponent implements OnInit, OnDestroy {
   public chartLabels: Label[] = [];
   public chartType: ChartType = 'doughnut';
   public chartOptions: any = {
-    legend:
-      { display: true, labels: { fontColor: 'black' } },
+    legend: {
+      display: true,
+      labels: {
+        fontColor: 'black'
+       }
+      },
+      tooltips: {
+        callbacks: {
+          label: (item, data) => {
+            return `${data.labels[item.index]}: ${this.currencyPipe.transform(+data.datasets[item.datasetIndex].data[item.index])}`;
+         }
+        }
+      },
     options: {
       scale: {
         ticks: {

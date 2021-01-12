@@ -44,7 +44,7 @@ export class ChartDespesasMesComponent implements OnInit {
         callbacks: {
           label: (data: { value: number; }) => {
           return this.currencyPipe.transform(data.value);
-         }
+         },
         }
       },
      scales: {
@@ -63,7 +63,7 @@ export class ChartDespesasMesComponent implements OnInit {
   };
 
   public lineChartColors: Color[] = [{
-    backgroundColor: ['#737495', '#E8B71A', '#354458', '#5BB12F', '#DD5F32']
+    backgroundColor: ['#737495', '#E8B71A', '#354458', '#5BB12F', '#DD5F32', '#FF5733', '#581845']
   }];
   public chartData: ChartDataSets[] = [];
 
@@ -108,7 +108,7 @@ export class ChartDespesasMesComponent implements OnInit {
     this.getDespesas();
 
     if (this.despesasTodas && this.despesasTodas.length > 0) {
-      this.anoSelecionado = new Date().getUTCFullYear();
+      this.anoSelecionado = this.despesasTodas[this.despesasTodas.length].ano;
       this.filtrarPorAno(this.anoSelecionado);
       this.chartReady = true;
       this.chartService.alterarAno(this.anoSelecionado);
