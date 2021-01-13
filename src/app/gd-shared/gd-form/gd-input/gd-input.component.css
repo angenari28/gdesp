@@ -11,8 +11,9 @@
   }
 
 
-  :host .has-error label {
+  :host .has-error label, :host .has-error input{
     color: #b94a48;
+    border-color: #b94a48;
   }
 
   :host .has-error small {

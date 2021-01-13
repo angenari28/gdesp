@@ -30,7 +30,7 @@
                           </gd-column>
                         <gd-column size="1">
                           <gd-input label="{{'DESPESAS_VALOR' | gdi18n}}" placeholder="0,00" [form]='form'
-                            controlname="valor" mascara="separator.2" disabled="!contentReady" disabled="!contentReady">
+                            controlname="valor" parse="numero" casasDecimais='2' disabled="!contentReady" disabled="!contentReady">
                           </gd-input>
                         </gd-column>
                       </gd-row>

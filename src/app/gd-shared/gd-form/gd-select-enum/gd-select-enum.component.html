@@ -2,7 +2,7 @@
     <label class="control-label">{{title}}</label>
     <select class="form-control"
             formControlName="{{controlName}}" disable="disabled">
-        <option *ngIf="placeholder" disabled selected value="">{{placeholder}}</option>
+        <option *ngIf="placeholder" disabled selected value=''>{{placeholder}}</option>
         <option [value]="e.value" *ngFor="let e of lista">{{e.key}}</option>
     </select>
     <small *ngIf="opcaoInvalida" class="help-block error-container">{{ mensagemErro }}</small>

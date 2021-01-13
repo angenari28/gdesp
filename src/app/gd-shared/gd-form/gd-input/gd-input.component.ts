@@ -18,11 +18,10 @@ export class GdInputComponent implements OnInit {
   @Input() public placeholder: string;
   @Input() public controlname: string;
   @Input() public maxlength: number;
-  @Input() public tipo: any = 'text';
   @Input() public parse: string;
   @Input() public min: number;
   @Input() public max: number;
-  @Input() public mascara: 'gdCurrency' | 'date';
+  @Input() public casasDecimais: string;
   @Input() public disabled: boolean;
 
   constructor(public gdi18n: GdI18nService) {

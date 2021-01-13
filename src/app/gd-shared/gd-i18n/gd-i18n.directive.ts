@@ -3,6 +3,7 @@ import { Directive, Input, ElementRef, ViewContainerRef, ComponentFactoryResolve
 
 import { GdEventService } from '../gd-event/gd-event.service';
 import { GdI18nService } from './gd-i18n.service';
+import { NumeroParser } from './parsers/numero.parser';
 
 @Directive({
   selector: '[gdi18n]',
@@ -16,6 +17,7 @@ import { GdI18nService } from './gd-i18n.service';
 export class GdI18nDirective implements OnInit {
   public _disabled: boolean;
   @Input() gdi18n: string;
+  @Input() casasDecimais: string;
   @Input() group: FormGroup;
   @Input()
   set disabled(value: boolean) {
@@ -102,5 +104,23 @@ export class GdI18nDirective implements OnInit {
   }
 
   parse(newValue: string, triggerOnBlur?: boolean, fromInput?: boolean, emitirValueChanges?: boolean) {
-  }
+    newValue = newValue ? newValue.toString() : '';
+    emitirValueChanges = emitirValueChanges != null ? emitirValueChanges : true;
+    let ret: any = {
+        toView: newValue,
+        toModel: newValue
+    };
+
+    switch (this.gdi18n) {
+        case 'numero':
+            ret = NumeroParser.parse(newValue, this.service.getConfig(), false, true, this.casasDecimais, fromInput);
+            break;
+    }
+    if (this.control.control) {
+        this.control.control.setValue(ret.toModel, { onlySelf: false, emitEvent: emitirValueChanges });
+    } else {
+        this.ngModel.viewToModelUpdate(ret.toModel);
+    }
+    this.element.nativeElement.value = ret.toView;
+}
 }

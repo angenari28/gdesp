@@ -39,5 +39,17 @@ export class GdSelectEnumComponent implements OnInit {
 
     ngOnInit() {
 
+      this.event.on('form-submitted', (event: Event) => {
+        this.validate();
+    });
     }
+
+    validate() {
+      this.opcaoInvalida = this.form.controls[this.controlName].invalid;
+
+      if (this.opcaoInvalida) {
+          this.mensagemErro =
+          this.i18n.getTranslation(this.form.controls[this.controlName].errors.errorMessage, 'base').replace('{0}', this.title);
+      }
+  }
 }
