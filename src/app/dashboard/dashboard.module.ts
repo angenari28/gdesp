@@ -9,7 +9,8 @@ import { GdWidgetGridModule } from '@gdesp/gd-widget-grid/gd-widget-grid.module'
 import { GdWidgetModule } from '@gdesp/gd-widget/gd-widget.module';
 import { DashboardComponent } from './dashboard.component';
 import { ChartsModule } from 'ng2-charts';
-import { ChartDespesasTotalComponent } from '../chart/chart-despesas-total/chart-despesas-total.component';
+import { ChartDespesasTotalCategoriaComponent } from '../chart/chart-despesas-total-categoria/chart-despesas-total-categoria.component';
+import { ChartDespesasTotalMesComponent } from '../chart/chart-despesas-total-mes/chart-despesas-total-mes.component';
 import { GdAlertModule } from '@gdesp/gd-alert/gd-alert.module';
 import { GdContextService } from '@gdesp/gd-context/gd-context.service';
 import { DespesasService } from './../despesas/despesas.service';
@@ -18,7 +19,11 @@ import { GdEventService } from '@gdesp/gd-event/gd-event.service';
 
 import {GdI18nCurrencyPipe } from '../gd-shared/gd-i18n/pipes/gd-i18n.currency.pipe';
 @NgModule({
-  declarations: [DashboardComponent, ChartDespesasTotalComponent, ChartDespesasMesComponent],
+  declarations: [
+    DashboardComponent,
+    ChartDespesasTotalCategoriaComponent,
+    ChartDespesasMesComponent,
+    ChartDespesasTotalMesComponent],
   imports: [
     CommonModule,
     DashboardRoutingModule,
@@ -28,6 +33,12 @@ import {GdI18nCurrencyPipe } from '../gd-shared/gd-i18n/pipes/gd-i18n.currency.p
     ChartsModule,
     GdAlertModule
   ],
-  providers: [DespesasService, ElectronService, GdContextService, GdEventService, GdI18nCurrencyPipe, ChartService]
+  providers: [
+    DespesasService,
+    ElectronService,
+    GdContextService,
+    GdEventService,
+    GdI18nCurrencyPipe,
+    ChartService]
 })
 export class DashboardModule { }

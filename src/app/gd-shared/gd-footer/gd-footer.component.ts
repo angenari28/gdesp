@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'gd-footer',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GdFooterComponent implements OnInit {
 
+  public VERSION  = environment.VERSION;
   constructor() { }
 
   ngOnInit(): void {

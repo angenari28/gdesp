@@ -4,17 +4,17 @@ import { Subscription } from 'rxjs';
 import { Label, Color } from 'ng2-charts';
 import { ChartType, ChartDataSets } from 'chart.js';
 
-import { ChartService } from './../chart.service';
-import { IKeyValue } from './../../gd-shared/gd-interface/key-value.interface';
+import { ChartService } from '../chart.service';
+import { IKeyValue } from '../../gd-shared/gd-interface/key-value.interface';
 
 import { DespesasService } from '../../despesas/despesas.service';
 import { GdI18nCurrencyPipe } from '../../gd-shared/gd-i18n/pipes/gd-i18n.currency.pipe';
 @Component({
-  selector: 'gd-chart-despesas-total',
-  templateUrl: './chart-despesas-total.component.html',
-  styleUrls: ['./chart-despesas-total.component.less']
+  selector: 'gd-chart-despesas-total-categoria',
+  templateUrl: './chart-despesas-total-categoria.component.html',
+  styleUrls: ['./chart-despesas-total-categoria.component.less']
 })
-export class ChartDespesasTotalComponent implements OnInit, OnDestroy {
+export class ChartDespesasTotalCategoriaComponent implements OnInit, OnDestroy {
 
   constructor(public service: DespesasService,
               private chartService: ChartService,

@@ -4,6 +4,8 @@
     "outDir": "./out-tsc/app",
     "rootDir": "./src",
     "types": ["node"],
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
     "paths": {
       "@gdesp/*": [ "app/gd-shared/*" ],
       "@database/*": [ "../database/src/*"]

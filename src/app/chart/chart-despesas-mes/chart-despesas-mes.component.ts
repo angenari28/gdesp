@@ -45,7 +45,8 @@ export class ChartDespesasMesComponent implements OnInit {
           label: (data: { value: number; }) => {
           return this.currencyPipe.transform(data.value);
          },
-        }
+        },
+        hoverBorderColor: '#581845'
       },
      scales: {
        xAxes: [{
@@ -91,7 +92,8 @@ export class ChartDespesasMesComponent implements OnInit {
       this.mesesIndice.forEach(mes => {
         const valorMes = despesas.filter(x => +x.mes === +mes && +x.idCategoria === +categoria);
 
-        const saida: string = valorMes.length > 0 ?  valorMes[0].valor : '0';
+        const saida: string = valorMes.length > 0 ?
+          valorMes.map(x => x.valor).reduce((a, b) => a + b, 0) : '0';
 
         data.push(saida);
 
@@ -108,7 +110,10 @@ export class ChartDespesasMesComponent implements OnInit {
     this.getDespesas();
 
     if (this.despesasTodas && this.despesasTodas.length > 0) {
-      this.anoSelecionado = this.despesasTodas[this.despesasTodas.length].ano;
+      this.anoSelecionado = this.despesasTodas[this.despesasTodas.length] == null
+                            || this.despesasTodas[this.despesasTodas.length] === undefined
+                            ? this.despesasTodas[this.despesasTodas.length - 1].ano
+                            : this.despesasTodas[this.despesasTodas.length].ano;
       this.filtrarPorAno(this.anoSelecionado);
       this.chartReady = true;
       this.chartService.alterarAno(this.anoSelecionado);

@@ -14,6 +14,8 @@
     "mapRoot": "./",
     "module": "commonjs",
     "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
     "outDir": "./dist/",
     "rootDir": "./src",
     "sourceMap": true,
@@ -33,7 +35,8 @@
   ],
   "exclude": [
     "test.ts",
-    "./src/assets/api/gd-i18n/json-typings.d.ts"
+    "./src/assets/api/gd-i18n/json-typings.d.ts",
+    "./src/app/gd-shared/gd-footer/json-typings.d.ts"
     ]
 }
 
